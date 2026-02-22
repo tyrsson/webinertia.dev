@@ -14,6 +14,9 @@ $cacheConfig = [
 ];
 
 $aggregator = new ConfigAggregator([
+    \Webware\CommandBus\Event\ConfigProvider::class,
+    \Phly\EventDispatcher\ConfigProvider::class,
+    \Webware\CommandBus\ConfigProvider::class,
     PhpDb\ConfigProvider::class,
     \PhpDb\Mysql\ConfigProvider::class,
     Laminas\View\ConfigProvider::class,
@@ -34,7 +37,6 @@ $aggregator = new ConfigAggregator([
         },
     // Default App module config
     ConfigProvider::class,
-    \Mysql\ConfigProvider::class,
     // Load application config in a pre-defined order in such a way that local settings
     // overwrite global settings. (Loaded as first to last):
     //   - `global.php`
