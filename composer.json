@@ -26,7 +26,9 @@
         "mezzio/mezzio-fastroute": "^3.14",
         "mezzio/mezzio-helpers": "^5.20",
         "mezzio/mezzio-laminasviewrenderer": "^3.0",
-        "php-db/phpdb-mysql":"^0.2.0"
+        "php-db/phpdb-mysql": "^0.2.0",
+        "webware/command-bus": "^0.4.0",
+        "webware/commandbus-event": "^0.1.0"
     },
     "require-dev": {
         "phpstan/phpstan": "^2.1",
@@ -38,8 +40,7 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "src/App/src/",
-            "Mysql\\": "src/Mysql/src/"
+            "App\\": "src/App/src/"
         }
     },
     "autoload-dev": {
