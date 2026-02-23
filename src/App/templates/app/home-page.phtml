@@ -1,137 +1,125 @@
 <?php $this->headTitle('Home'); ?>
-<article>
-    <div>
-        <h1>Welcome to <span class="mezzio-green">mezzio</span></h1>
-        <p>
-            Congratulations! You have successfully installed the
-            <a href="https://github.com/mezzio/mezzio-skeleton" target="_blank">mezzio skeleton application</a>.
-            This skeleton can serve as a simple starting point for you to begin building your application.
-        </p>
-        <p>
-            Mezzio builds on laminas-stratigility to provide a minimalist PSR-7 middleware framework for PHP.
-        </p>
-    </div>
-</article>
-<div class="grid">
-    <div>
-        <article>
-            <header>
-                <h2>
-                    <a href="https://docs.mezzio.dev/mezzio/getting-started/features" target="_blank">
-                        <i class="fa fa-bolt"></i> Agile &amp; Lean
-                    </a>
-                </h2>
-            </header>
-            <p>
-                Mezzio is fast, small and perfect for rapid application development, prototyping and api's.
-                You decide how you extend it and choose the best packages from major framework or standalone projects.
+<!-- Hero Split Screen -->
+<section class="hero-split">
+    <div class="hero-left">
+        <div class="hero-content">
+            <h1 class="hero-title">Build<br>Tomorrow's<br>Web</h1>
+            <p class="hero-subtitle">
+                We craft next-generation digital experiences that push boundaries and redefine what's possible in web development.
             </p>
-        </article>
+            <div class="hero-cta">
+                <a href="<?= $this->url('contact') ?>" class="btn-primary">Start Project</a>
+                <!-- <a href="portfolio.html" class="btn-outline">View Work</a> -->
+            </div>
+        </div>
     </div>
-    <div>
-        <article>
-            <header>
-                <h2>
-                    <a href="https://github.com/laminas/laminas-diactoros" target="_blank">
-                        <i class="fa fa-exchange-alt"></i> HTTP Messages
-                    </a>
-                </h2>
-            </header>
-                <p>
-                    HTTP messages are the foundation of web development. Web browsers and HTTP clients such as cURL create
-                    HTTP request messages that are sent to a web server, which provides an HTTP response message.
-                    Server-side code receives an HTTP request message, and returns an HTTP response message.
-                </p>
-        </article>
+    <div class="hero-right">
+        <div class="hero-visual">
+            <div class="floating-card floating-card-1">
+                <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Fast</h3>
+                <p style="color: var(--text-secondary); font-size: 0.9rem;">Lightning performance</p>
+            </div>
+            <div class="floating-card floating-card-2">
+                <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Secure</h3>
+                <p style="color: var(--text-secondary); font-size: 0.9rem;">Enterprise-grade</p>
+            </div>
+            <div class="floating-card floating-card-3">
+                <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Scalable</h3>
+                <p style="color: var(--text-secondary); font-size: 0.9rem;">Built to grow</p>
+            </div>
+        </div>
     </div>
-    <div>
-        <article>
-            <header>
-                <h2>
-                    <a href="https://github.com/laminas/laminas-stratigility" target="_blank">
-                        <i class="fa fa-dot-circle"></i> Middleware
-                    </a>
-                </h2>
-            </header>
-                <p>
-                    Middleware is code that exists between the request and response, and which can take the incoming
-                    request, perform actions based on it, and either complete the response or pass delegation on to the
-                    next middleware in the queue. Your application is easily extended with custom middleware created by
-                    yourself or <a href="https://packagist.org/search/?q=middleware" target="_blank">others</a>.
-                </p>
-        </article>
-    </div>
-</div>
-<div class="grid">
-    <div>
-        <article>
-            <header>
-                <h2>
-                    <a href="https://docs.mezzio.dev/mezzio/features/container/intro" target="_blank">
-                        <i class="fa fa-cube"></i> Containers
-                    </a>
-                </h2>
-            </header>
-            <p>
-                Mezzio promotes and advocates the usage of Dependency Injection/Inversion of Control containers
-                when writing your applications. Mezzio supports multiple containers which typehints against
-                <a href="https://github.com/php-fig/container" target="_blank">PSR Container</a>.
-            </p>
-            <?php if (isset($this->containerName)) : ?>
-                <p>
-                    <a href="<?= $this->containerDocs ?>" target="_blank">
-                        Get started with <?= $this->containerName ?>.
-                    </a>
-                </p>
-            <?php endif; ?>
-        </article>
-    </div>
-    <div>
-        <article>
-            <header>
-                <h2>
-                    <a href="https://docs.mezzio.dev/mezzio/features/router/intro" target="_blank">
-                        <i class="fa fa-plane"></i> Routers
-                    </a>
-                </h2>
-            </header>
-            <p>
-                One fundamental feature of mezzio is that it provides mechanisms for implementing dynamic
-                routing, a feature required in most modern web applications. Mezzio ships with multiple adapters.
-            </p>
-            <?php if (isset($this->routerName)) : ?>
-                <p>
-                    <a href="<?= $this->routerDocs ?>" target="_blank">
-                        Get started with <?= $this->routerName ?>.
-                    </a>
-                </p>
-            <?php endif; ?>
-        </article>
+</section>
+
+<!-- Services Section -->
+<section class="diagonal-section">
+    <div class="section-header">
+        <h2 class="section-title"><span class="gradient-text">What We Do</span></h2>
+        <p class="section-subtitle">Full-stack solutions for modern challenges</p>
     </div>
 
-    <div>
-        <article>
-            <header>
-                <h2>
-                    <a href="https://docs.mezzio.dev/mezzio/features/template/laminas-view" target="_blank">
-                        <i class="fa fa-edit"></i> Templating
-                    </a>
-                </h2>
-            </header>
-            <p>
-                By default, no middleware in Mezzio is templated. We do not even provide a default templating
-                engine, as the choice of templating engine is often very specific to the project and/or organization.
-                However, Mezzio does provide abstraction for templating, which allows you to write middleware that
-                is engine-agnostic.
+    <div class="bento-grid">
+        <div class="bento-card">
+            <div class="card-icon">🚀</div>
+            <h3 class="card-title">Web Apps</h3>
+            <p class="card-description">
+                Custom applications built with React, Vue, and Next.js for maximum performance and user experience.
             </p>
-            <?php if (isset($this->templateName)) : ?>
-                <p>
-                    <a href="<?= $this->templateDocs ?>" target="_blank">
-                        Get started with <?= $this->templateName ?>.
-                    </a>
-                </p>
-            <?php endif; ?>
-        </article>
+        </div>
+
+        <div class="bento-card">
+            <div class="card-icon">⚡</div>
+            <h3 class="card-title">Performance</h3>
+            <p class="card-description">
+                Optimize every millisecond with advanced caching, CDN integration, and code splitting strategies.
+            </p>
+        </div>
+
+        <div class="bento-card large">
+            <div class="card-icon">🎨</div>
+            <h3 class="card-title">UI/UX Design</h3>
+            <p class="card-description">
+                Beautiful, intuitive interfaces that users love. We combine aesthetic design with data-driven UX principles to create experiences that convert and delight.
+            </p>
+        </div>
+
+        <div class="bento-card">
+            <div class="card-icon">🔐</div>
+            <h3 class="card-title">Security</h3>
+            <p class="card-description">
+                Enterprise-grade security with penetration testing, compliance audits, and continuous monitoring.
+            </p>
+        </div>
+
+        <div class="bento-card">
+            <div class="card-icon">☁️</div>
+            <h3 class="card-title">Cloud Native</h3>
+            <p class="card-description">
+                Deploy and scale effortlessly with AWS, Azure, and GCP infrastructure optimized for your needs.
+            </p>
+        </div>
+
+        <div class="bento-card">
+            <div class="card-icon">🔧</div>
+            <h3 class="card-title">API Development</h3>
+            <p class="card-description">
+                RESTful and GraphQL APIs designed for performance, scalability, and developer experience.
+            </p>
+        </div>
     </div>
-</div>
+</section>
+
+<!-- Tech Stack -->
+<section style="padding: 6rem 0; background: var(--darker-bg);">
+    <div class="section-header">
+        <h2 class="section-title"><span class="gradient-text">Tech Stack</span></h2>
+        <div class="divider"></div>
+    </div>
+    <div class="tech-stack">
+        <div class="tech-pill">Laminas</div>
+        <div class="tech-pill">Slim</div>
+        <div class="tech-pill">Swoole</div>
+        <div class="tech-pill">Mezzio Microframework</div>
+        <div class="tech-pill">HTMX</div>
+        <div class="tech-pill">PostgreSQL</div>
+        <div class="tech-pill">MariaDB</div>
+        <div class="tech-pill">MySQL</div>
+        <div class="tech-pill">AWS</div>
+        <div class="tech-pill">Docker</div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section style="padding: 8rem 4rem; text-align: center;">
+    <h2 class="section-title" style="margin-bottom: 2rem;">
+        <span class="gradient-text">Ready to Innovate?</span>
+    </h2>
+    <p class="section-subtitle" style="margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+        Let's build something extraordinary together
+    </p>
+    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <a href="<?= $this->url('contact') ?>" class="btn-primary">Get Started</a>
+        <a href="<?= $this->url('about') ?>" class="btn-outline">Learn More</a>
+    </div>
+</section>
 

@@ -7,17 +7,16 @@ $this->headMeta()
     ->appendName('viewport', 'width=device-width, initial-scale=1')
     ->appendName('color-scheme', 'light dark');
 
-$this->headLink(
-    [
-        'rel'  => 'shortcut icon',
-        'href' => 'https://getlaminas.org/images/favicon/favicon.ico',
-    ]
-);
+// $this->headLink(
+//     [
+//         'rel'  => 'shortcut icon',
+//         'href' => 'https://getlaminas.org/images/favicon/favicon.ico',
+//     ]
+// );
 
 // styles
 $this->headLink()
-    ->appendStylesheet('https://use.fontawesome.com/releases/v5.13.0/css/all.css')
-    ->appendStylesheet('https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.jade.min.css')
+    ->appendStylesheet('https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css')
     ->appendStylesheet($this->basePath('assets/css/pico-override.css'))
     ->appendStylesheet($this->basePath('assets/css/style.css'));
 
@@ -35,53 +34,36 @@ $this->headScript()
 
 <?= $this->doctype(); ?>
 
-<html lang="en-US">
+<html lang="en-US" data-theme="dark">
     <head>
         <base href="<?= $this->basePath('/'); ?>" />
-        <?= $this->headTitle('mezzio')->setSeparator(' - ') ?>
+        <?= $this->headTitle('Webinertia')->setSeparator(' | ') ?>
         <?= $this->headMeta() ?>
+            <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&display=swap" rel="stylesheet">
         <?= $this->headLink() ?>
         <?= $this->headScript() ?>
     </head>
     <body>
-        <header id="app-header" class="container" style="margin-top:0; padding-top: 0;">
-            <nav style="margin-top:0; padding-top:0;">
-                <!-- Brand -->
-                <ul>
-                    <li>
-                        <a href="<?= $this->url('home') ?>">
-                            <img src="https://docs.laminas.dev/img/laminas-mezzio-rgb.svg" alt="Laminas Mezzio" width="300" />
-                        </a>
-                    </li>
-                </ul>
-                <!-- Links -->
-                <ul>
-                    <li>
-                        <a href="https://docs.mezzio.dev/mezzio" target="_blank">
-                            <i class="fa fa-book"></i> Docs
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/mezzio/mezzio" target="_blank">
-                            <i class="fa fa-wrench"></i> Contribute
-                        </a>
-                    </li>
-                    <li>
-                        <a href="<?= $this->url('api.ping') ?>">
-                            Ping Test
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </header>
-        <main id="app-main" class="container">
+        <!-- Side Navigation -->
+        <nav class="side-nav">
+            <div class="side-nav-logo">Webinertia</div>
+            <ul class="side-nav-items">
+                <li class="side-nav-item"><a href="<?= $this->url('home') ?>" data-label="Home">🏠</a></li>
+                <li class="side-nav-item"><a href="<?= $this->url('services') ?>" data-label="Services">⚡</a></li>
+                <li class="side-nav-item"><a href="<?= $this->url('about') ?>" data-label="About">💡</a></li>
+                <li class="side-nav-item"><a href="<?= $this->url('contact') ?>" data-label="Contact">📧</a></li>
+            </ul>
+        </nav>
+        <main class="main-content">
             <?= $this->content ?>
         </main>
-        <footer id="app-footer" class="container">
-            <hr />
-            <p>
-                &copy; <?= date('Y') ?> <a href="https://getlaminas.org/">Laminas Project</a> a Series of LF Projects, LLC.
-            </p>
+        <footer>
+            <div class="footer-content">
+                <p>&copy; <?= date('Y') ?> <span class="footer-brand">Webinertia</span> <span class="accent-dot"></span> Shaping Digital Futures</p>
+            </div>
         </footer>
         <?= $this->inlineScript() ?>
     </body>

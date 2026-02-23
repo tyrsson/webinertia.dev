@@ -31,6 +31,34 @@ final class RouteProvider implements RouteProviderInterface
             ),
             'home'
         );
+        $routeCollector->get(
+            '/about',
+            $middlewareFactory->prepare(
+                Handler\AboutPageHandler::class
+            ),
+            'about'
+        );
+        $routeCollector->get(
+            '/contact',
+            $middlewareFactory->prepare(
+                Handler\ContactPageHandler::class
+            ),
+            'contact'
+        );
+        $routeCollector->get(
+            '/projects',
+            $middlewareFactory->prepare(
+                Handler\ProjectPageHandler::class
+            ),
+            'projects'
+        );
+        $routeCollector->get(
+            '/services',
+            $middlewareFactory->prepare(
+                Handler\ServicePageHandler::class
+            ),
+            'services'
+        );
 
         $routeCollector->get(
             '/ping',
