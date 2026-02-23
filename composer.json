@@ -1,16 +1,17 @@
 {
-    "name": "webware/mezzio-bleeding-edge",
-    "description": "A custom Mezzio skeleton",
+    "name": "tyrsson/webinertia",
+    "description": "Website for Webinertia, a software development company specializing in Mezzio and Laminas.",
     "license": "BSD-3-Clause",
     "keywords": [
         "mezzio",
-        "custom skeleton"
+        "laminas",
+        "webinertia"
     ],
     "authors": [
         {
             "name": "Joey Smith",
             "email": "jsmith@webinertia.net",
-            "homepage": "https://github.com/tyrsson/mezzio-bleeding-edge/discussions",
+            "homepage": "https://github.com/tyrsson/webinertia.dev/discussions",
             "role": "Developer"
         }
     ],
