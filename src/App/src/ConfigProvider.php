@@ -57,8 +57,12 @@ class ConfigProvider
     {
         return [
             'factories'  => [
-                Handler\HomePageHandler::class => Container\HomePageHandlerFactory::class,
-                RouteProvider::class           => Container\RouteProviderFactory::class,
+                Handler\AboutPageHandler::class   => Container\AboutPageHandlerFactory::class,
+                Handler\ContactPageHandler::class => Container\ContactPageHandlerFactory::class,
+                Handler\HomePageHandler::class    => Container\HomePageHandlerFactory::class,
+                Handler\ProjectPageHandler::class => Container\ProjectPageHandlerFactory::class,
+                Handler\ServicePageHandler::class => Container\ServicePageHandlerFactory::class,
+                RouteProvider::class              => Container\RouteProviderFactory::class,
             ],
             'invokables' => [
                 Handler\PingHandler::class => Handler\PingHandler::class,
