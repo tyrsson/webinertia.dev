@@ -1,0 +1,57 @@
+/* About Page Specific Styles */
+
+/* About page header with extended width for subtitle */
+.about-header-subtitle {
+    max-width: 800px;
+    margin: 2rem auto 0;
+}
+
+/* Mission section wrapper */
+.mission-section {
+    padding: 4rem;
+}
+
+.mission-grid-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Mission card description styling */
+.mission-card-description {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+/* Values section */
+.values-section {
+    padding: 6rem 4rem;
+}
+
+.values-grid-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.values-card {
+    margin-bottom: 2rem;
+}
+
+/* Responsive adjustments for about page */
+@media (max-width: 768px) {
+    .mission-section,
+    .values-section {
+        padding: 2rem 1rem;
+    }
+
+    .mission-grid-wrapper,
+    .values-grid-wrapper {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 1024px) {
+    .mission-section,
+    .values-section {
+        padding: 4rem 2rem;
+    }
+}

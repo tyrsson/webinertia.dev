@@ -1,0 +1,105 @@
+/* Project Page Specific Styles */
+
+/* Portfolio section wrapper */
+.portfolio-section-wrapper {
+    padding: 2rem 0 6rem;
+}
+
+/* Portfolio image gradients */
+.portfolio-image-gradient-1 {
+    background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%);
+}
+
+.portfolio-image-gradient-2 {
+    background: linear-gradient(135deg, #06B6D4 0%, #8B5CF6 100%);
+}
+
+.portfolio-image-gradient-3 {
+    background: linear-gradient(135deg, #FBBF24 0%, #8B5CF6 100%);
+}
+
+/* Process section */
+.process-section-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 4rem;
+}
+
+.process-item {
+    text-align: center;
+}
+
+.process-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+.process-circle-1 {
+    background: var(--gradient-1);
+}
+
+.process-circle-2 {
+    background: var(--gradient-2);
+}
+
+.process-circle-3 {
+    background: var(--gradient-3);
+}
+
+.process-circle-4 {
+    background: var(--gradient-1);
+}
+
+.process-title {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.process-description {
+    color: var(--text-secondary);
+}
+
+/* Responsive adjustments for project page */
+@media (max-width: 768px) {
+    .portfolio-section-wrapper {
+        padding: 1rem 0 3rem;
+    }
+
+    .process-section-wrapper {
+        padding: 1rem;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .process-circle {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .process-title {
+        font-size: 1.1rem;
+    }
+
+    .process-description {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .process-section-wrapper {
+        padding: 2rem;
+        grid-template-columns: 1fr;
+    }
+}

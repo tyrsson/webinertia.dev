@@ -530,6 +530,144 @@ footer {
 }
 
 /* Responsive Design */
+@media (max-width: 768px) {
+    .side-nav {
+        width: 0;
+        overflow: hidden;
+    }
+
+    .main-content, footer {
+        margin-left: 0;
+    }
+
+    .page-header {
+        padding: 3rem 1.5rem 2rem;
+    }
+
+    .page-subtitle {
+        max-width: 100%;
+    }
+
+    .cta-section-base {
+        padding: 4rem 1.5rem;
+    }
+
+    .diagonal-section {
+        padding: 4rem 1.5rem;
+        clip-path: none;
+        margin: 2rem 0;
+    }
+
+    .section-header {
+        margin-bottom: 2rem;
+    }
+
+    .section-title {
+        font-size: clamp(1.75rem, 4vw, 2.5rem);
+    }
+
+    .bento-grid {
+        grid-template-columns: 1fr;
+        padding: 1.5rem;
+        gap: 1rem;
+    }
+
+    .bento-card {
+        padding: 1.5rem;
+    }
+
+    .bento-card.large {
+        grid-column: span 1;
+    }
+
+    .hero-split {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-right {
+        display: none;
+    }
+
+    .hero-left {
+        padding: 2rem 1.5rem;
+    }
+
+    .hero-title {
+        font-size: clamp(2rem, 6vw, 3.5rem);
+        margin-bottom: 1.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .btn-primary, .btn-outline {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+        padding: 1.5rem;
+        gap: 1rem;
+    }
+
+    .portfolio-item {
+        grid-column: span 1 !important;
+        grid-row: span 1 !important;
+    }
+
+    .portfolio-image {
+        height: 200px;
+    }
+
+    .portfolio-item:nth-child(1) .portfolio-image {
+        height: 200px;
+    }
+
+    .portfolio-content {
+        padding: 1.5rem;
+    }
+
+    .contact-container {
+        padding: 1.5rem 1rem;
+        margin: 2rem auto;
+        max-width: 100%;
+    }
+
+    .contact-form {
+        padding: 1.5rem;
+    }
+
+    input, select, textarea {
+        padding: 0.75rem;
+        font-size: 16px;
+    }
+
+    textarea {
+        min-height: 120px;
+    }
+
+    footer {
+        padding: 2rem 1rem;
+    }
+
+    .footer-content {
+        font-size: 0.9rem;
+    }
+
+    .tech-stack {
+        padding: 2rem 1rem;
+        gap: 1rem;
+    }
+
+    .tech-pill {
+        padding: 1rem;
+        font-size: 0.85rem;
+    }
+}
+
 @media (max-width: 1024px) {
     .side-nav {
         width: 0;
@@ -605,4 +743,115 @@ footer {
     background: var(--gradient-1);
     max-width: 100px;
     margin: 2rem auto;
+}
+/* Page Header - Global Utility */
+.page-header {
+    padding: 6rem 4rem 4rem;
+    text-align: center;
+}
+
+.page-title {
+    font-size: clamp(3rem, 6vw, 5rem);
+}
+
+.page-subtitle {
+    max-width: 700px;
+    margin: 2rem auto 0;
+}
+
+/* CTA Section - Global Utility */
+.cta-section-base {
+    padding: 8rem 4rem;
+    text-align: center;
+}
+
+.cta-section-title {
+    margin-bottom: 2rem;
+}
+
+.cta-section-subtitle {
+    margin-bottom: 3rem;
+}
+
+.cta-buttons-container {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Form Utilities */
+.form-full-width {
+    width: 100%;
+}
+
+/* Mobile Menu - Hamburger Navigation */
+.mobile-menu-toggle {
+    display: none;
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1001;
+    background: var(--gradient-1);
+    border: none;
+    color: white;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-toggle:hover {
+    box-shadow: 0 5px 20px rgba(139, 92, 246, 0.5);
+}
+
+.mobile-nav-menu {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 60px;
+    width: 100%;
+    background: rgba(15, 15, 30, 0.98);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+    flex-direction: column;
+    padding: 1rem;
+    gap: 0.5rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    z-index: 1000;
+}
+
+.mobile-nav-menu.active {
+    display: flex;
+    max-height: 400px;
+}
+
+.mobile-nav-menu a {
+    padding: 1rem 1.5rem;
+    color: var(--text-primary);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+    transition: background 0.3s ease;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.mobile-nav-menu a:hover {
+    background: rgba(139, 92, 246, 0.1);
+    color: var(--primary-purple);
+}
+
+.mobile-nav-menu a:last-child {
+    border-bottom: none;
+}
+
+@media (max-width: 768px) {
+    .mobile-menu-toggle {
+        display: block;
+    }
 }

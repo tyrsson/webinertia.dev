@@ -1,7 +1,10 @@
-<?php $this->headTitle('Services'); ?>
+<?php
+$this->headTitle('Services');
+$this->headLink()->appendStylesheet($this->basePath('assets/css/service.css'));
+?>
 <!-- Page Header -->
-<section style="padding: 6rem 4rem 4rem; text-align: center;">
-    <h1 class="hero-title" style="font-size: clamp(3rem, 6vw, 5rem);">
+<section class="page-header">
+    <h1 class="hero-title page-title">
         <span class="gradient-text">Our Services</span>
     </h1>
     <div class="divider"></div>
@@ -11,7 +14,7 @@
 </section>
 
 <!-- Services Grid -->
-<section style="padding: 4rem 0;">
+<section class="service-grid-wrapper">
     <div class="bento-grid">
         <div class="bento-card large">
             <div class="card-icon">🚀</div>
@@ -19,11 +22,11 @@
             <p class="card-description">
                 Build powerful, scalable web applications with modern frameworks and architectures. We specialize in Mezzio, Laminas, Slim, and Swoole, delivering solutions that are fast, secure, and maintainable.
             </p>
-            <div style="margin-top: 2rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                <span style="padding: 0.5rem 1rem; background: rgba(139, 92, 246, 0.2); border-radius: 20px; font-size: 0.85rem;">Mezzio</span>
-                <span style="padding: 0.5rem 1rem; background: rgba(139, 92, 246, 0.2); border-radius: 20px; font-size: 0.85rem;">Laminas</span>
-                <span style="padding: 0.5rem 1rem; background: rgba(139, 92, 246, 0.2); border-radius: 20px; font-size: 0.85rem;">Slim</span>
-                <span style="padding: 0.5rem 1rem; background: rgba(139, 92, 246, 0.2); border-radius: 20px; font-size: 0.85rem;">Swoole</span>
+            <div class="service-tags-container-purple">
+                <span class="service-tag-purple">Mezzio</span>
+                <span class="service-tag-purple">Laminas</span>
+                <span class="service-tag-purple">Slim</span>
+                <span class="service-tag-purple">Swoole</span>
             </div>
         </div>
 
@@ -57,10 +60,10 @@
             <p class="card-description">
                 Deploy and scale with confidence using modern cloud platforms. We architect solutions on AWS, Azure, and GCP with automated CI/CD pipelines, containerization, and orchestration.
             </p>
-            <div style="margin-top: 2rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                <span style="padding: 0.5rem 1rem; background: rgba(6, 182, 212, 0.2); border-radius: 20px; font-size: 0.85rem;">AWS</span>
-                <span style="padding: 0.5rem 1rem; background: rgba(6, 182, 212, 0.2); border-radius: 20px; font-size: 0.85rem;">Docker</span>
-                <span style="padding: 0.5rem 1rem; background: rgba(6, 182, 212, 0.2); border-radius: 20px; font-size: 0.85rem;">Kubernetes</span>
+            <div class="service-tags-container-cyan">
+                <span class="service-tag-cyan">AWS</span>
+                <span class="service-tag-cyan">Docker</span>
+                <span class="service-tag-cyan">Kubernetes</span>
             </div>
         </div>
 
@@ -99,11 +102,11 @@
 </section>
 
 <!-- CTA -->
-<section style="padding: 8rem 4rem; text-align: center; background: var(--card-bg);">
-    <h2 class="section-title" style="margin-bottom: 2rem;">
+<section class="service-cta-section">
+    <h2 class="section-title cta-section-title">
         <span class="gradient-text">Let's Build Together</span>
     </h2>
-    <p class="section-subtitle" style="margin-bottom: 3rem;">
+    <p class="section-subtitle cta-section-subtitle">
         Ready to start your next project?
     </p>
     <a href="<?= $this->url('contact') ?>" class="btn-primary">Get Started</a>

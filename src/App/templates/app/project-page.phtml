@@ -1,7 +1,10 @@
-<?php $this->headTitle('Projects'); ?>
+<?php
+$this->headTitle('Projects');
+$this->headLink()->appendStylesheet($this->basePath('assets/css/project.css'));
+?>
 <!-- Page Header -->
-<section style="padding: 6rem 4rem 4rem; text-align: center;">
-    <h1 class="hero-title" style="font-size: clamp(3rem, 6vw, 5rem);">
+<section class="page-header">
+    <h1 class="hero-title page-title">
         <span class="gradient-text">Current Projects</span>
     </h1>
     <div class="divider"></div>
@@ -11,10 +14,10 @@
 </section>
 
 <!-- Portfolio Asymmetric Grid -->
-<section style="padding: 2rem 0 6rem;">
+<section class="portfolio-section-wrapper">
     <div class="portfolio-grid">
         <div class="portfolio-item">
-            <div class="portfolio-image" style="background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%);">
+            <div class="portfolio-image portfolio-image-gradient-1">
                 🛒
             </div>
             <div class="portfolio-content">
@@ -29,7 +32,7 @@
         </div>
 
         <div class="portfolio-item">
-            <div class="portfolio-image" style="background: linear-gradient(135deg, #06B6D4 0%, #8B5CF6 100%);">
+            <div class="portfolio-image portfolio-image-gradient-2">
                 📊
             </div>
             <div class="portfolio-content">
@@ -44,7 +47,7 @@
         </div>
 
         <div class="portfolio-item">
-            <div class="portfolio-image" style="background: linear-gradient(135deg, #FBBF24 0%, #8B5CF6 100%);">
+            <div class="portfolio-image portfolio-image-gradient-3">
                 🎓
             </div>
             <div class="portfolio-content">
@@ -67,36 +70,36 @@
         <div class="divider"></div>
     </div>
 
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; max-width: 1200px; margin: 0 auto; padding: 2rem 4rem;">
-        <div style="text-align: center;">
-            <div style="width: 80px; height: 80px; background: var(--gradient-1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 2rem; font-weight: 800;">1</div>
-            <h3 style="font-size: 1.3rem; margin-bottom: 1rem;">Discovery</h3>
-            <p style="color: var(--text-secondary);">We dive deep into your business goals, target audience, and technical requirements.</p>
+    <div class="process-section-wrapper">
+        <div class="process-item">
+            <div class="process-circle process-circle-1">1</div>
+            <h3 class="process-title">Discovery</h3>
+            <p class="process-description">We dive deep into your business goals, target audience, and technical requirements.</p>
         </div>
-        <div style="text-align: center;">
-            <div style="width: 80px; height: 80px; background: var(--gradient-2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 2rem; font-weight: 800;">2</div>
-            <h3 style="font-size: 1.3rem; margin-bottom: 1rem;">Design</h3>
-            <p style="color: var(--text-secondary);">Creating wireframes, prototypes, and high-fidelity designs that bring your vision to life.</p>
+        <div class="process-item">
+            <div class="process-circle process-circle-2">2</div>
+            <h3 class="process-title">Design</h3>
+            <p class="process-description">Creating wireframes, prototypes, and high-fidelity designs that bring your vision to life.</p>
         </div>
-        <div style="text-align: center;">
-            <div style="width: 80px; height: 80px; background: var(--gradient-3); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 2rem; font-weight: 800;">3</div>
-            <h3 style="font-size: 1.3rem; margin-bottom: 1rem;">Development</h3>
-            <p style="color: var(--text-secondary);">Building with modern technologies, following best practices and agile methodologies.</p>
+        <div class="process-item">
+            <div class="process-circle process-circle-3">3</div>
+            <h3 class="process-title">Development</h3>
+            <p class="process-description">Building with modern technologies, following best practices and agile methodologies.</p>
         </div>
-        <div style="text-align: center;">
-            <div style="width: 80px; height: 80px; background: var(--gradient-1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 2rem; font-weight: 800;">4</div>
-            <h3 style="font-size: 1.3rem; margin-bottom: 1rem;">Launch</h3>
-            <p style="color: var(--text-secondary);">Deploying to production with comprehensive testing, monitoring, and ongoing support.</p>
+        <div class="process-item">
+            <div class="process-circle process-circle-4">4</div>
+            <h3 class="process-title">Launch</h3>
+            <p class="process-description">Deploying to production with comprehensive testing, monitoring, and ongoing support.</p>
         </div>
     </div>
 </section>
 
 <!-- CTA -->
-<section style="padding: 8rem 4rem; text-align: center;">
-    <h2 class="section-title" style="margin-bottom: 2rem;">
+<section class="cta-section-base">
+    <h2 class="section-title cta-section-title">
         <span class="gradient-text">Let's Create Your Success Story</span>
     </h2>
-    <p class="section-subtitle" style="margin-bottom: 3rem;">
+    <p class="section-subtitle cta-section-subtitle">
         Ready to bring your project to life?
     </p>
     <a href="<?= $this->url('contact') ?>" class="btn-primary">Start Your Project</a>

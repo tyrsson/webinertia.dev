@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * This file is part of the Webware Mezzio Bleeding Edge package.
+ * This file is part of the Tyrsson Webinertia package.
  *
  * Copyright (c) 2026 Joey Smith <jsmith@webinertia.net>
  * and contributors.
@@ -29,7 +29,7 @@ final class ContactPageHandler implements RequestHandlerInterface
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
         $data = [
-            'title'   => 'Contact Us',
+            'title'         => 'Contact Us',
             'hero-subtitle' => 'From concept to deployment, we deliver comprehensive solutions that drive results',
         ];
         if (null === $this->template) {

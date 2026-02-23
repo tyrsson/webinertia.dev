@@ -1,4 +1,7 @@
-<?php $this->headTitle('Home'); ?>
+<?php 
+$this->headTitle('Home');
+$this->headLink()->appendStylesheet($this->basePath('assets/css/home.css'));
+?>
 <!-- Hero Split Screen -->
 <section class="hero-split">
     <div class="hero-left">
@@ -16,16 +19,16 @@
     <div class="hero-right">
         <div class="hero-visual">
             <div class="floating-card floating-card-1">
-                <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Fast</h3>
-                <p style="color: var(--text-secondary); font-size: 0.9rem;">Lightning performance</p>
+                <h3 class="floating-card-title">Fast</h3>
+                <p class="floating-card-text">Lightning performance</p>
             </div>
             <div class="floating-card floating-card-2">
-                <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Secure</h3>
-                <p style="color: var(--text-secondary); font-size: 0.9rem;">Enterprise-grade</p>
+                <h3 class="floating-card-title">Secure</h3>
+                <p class="floating-card-text">Enterprise-grade</p>
             </div>
             <div class="floating-card floating-card-3">
-                <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Scalable</h3>
-                <p style="color: var(--text-secondary); font-size: 0.9rem;">Built to grow</p>
+                <h3 class="floating-card-title">Scalable</h3>
+                <p class="floating-card-text">Built to grow</p>
             </div>
         </div>
     </div>
@@ -90,7 +93,7 @@
 </section>
 
 <!-- Tech Stack -->
-<section style="padding: 6rem 0; background: var(--darker-bg);">
+<section class="hero-tech-stack-section">
     <div class="section-header">
         <h2 class="section-title"><span class="gradient-text">Tech Stack</span></h2>
         <div class="divider"></div>
@@ -110,14 +113,14 @@
 </section>
 
 <!-- CTA Section -->
-<section style="padding: 8rem 4rem; text-align: center;">
-    <h2 class="section-title" style="margin-bottom: 2rem;">
+<section class="cta-section-base">
+    <h2 class="section-title cta-section-title">
         <span class="gradient-text">Ready to Innovate?</span>
     </h2>
-    <p class="section-subtitle" style="margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+    <p class="section-subtitle cta-section-subtitle">
         Let's build something extraordinary together
     </p>
-    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+    <div class="home-cta-buttons">
         <a href="<?= $this->url('contact') ?>" class="btn-primary">Get Started</a>
         <a href="<?= $this->url('about') ?>" class="btn-outline">Learn More</a>
     </div>
