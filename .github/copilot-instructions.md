@@ -243,7 +243,7 @@ composer test-coverage         # Generate coverage report
 
 ### Template Usage
 ```php
-$template->render('app/page-name', ['variable' => $value]);
+$template->render('app::{page-name}', ['variable' => $value]);
 ```
 
 ## Configuration Management
