@@ -72,10 +72,6 @@
         "test-coverage": "phpunit --colors=always --coverage-clover clover.xml",
         "sa": "vendor/bin/phpstan analyse --memory-limit=256M",
         "sa-gen-baseline": "vendor/bin/phpstan analyse --memory-limit=256M --generate-baseline",
-        "sa-verbose": "vendor/bin/phpstan analyse --memory-limit=256M -vv",
-        "serve": [
-            "Composer\\Config::disableProcessTimeout",
-            "php -S 0.0.0.0:8080 -t public/"
-        ]
+        "sa-verbose": "vendor/bin/phpstan analyse --memory-limit=256M -vv"
     }
 }
