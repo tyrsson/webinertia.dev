@@ -1,0 +1,33 @@
+/* Home Page Specific Styles */
+
+/* Floating Card Content */
+.floating-card-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.floating-card-text {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* Tech Stack Section */
+.hero-tech-stack-section {
+    padding: 6rem 0;
+    background: var(--darker-bg);
+}
+
+/* CTA Section with buttons */
+.home-cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Responsive adjustments for home page */
+@media (max-width: 1024px) {
+    .floating-card {
+        display: none;
+    }
+}

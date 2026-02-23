@@ -606,3 +606,43 @@ footer {
     max-width: 100px;
     margin: 2rem auto;
 }
+/* Page Header - Global Utility */
+.page-header {
+    padding: 6rem 4rem 4rem;
+    text-align: center;
+}
+
+.page-title {
+    font-size: clamp(3rem, 6vw, 5rem);
+}
+
+.page-subtitle {
+    max-width: 700px;
+    margin: 2rem auto 0;
+}
+
+/* CTA Section - Global Utility */
+.cta-section-base {
+    padding: 8rem 4rem;
+    text-align: center;
+}
+
+.cta-section-title {
+    margin-bottom: 2rem;
+}
+
+.cta-section-subtitle {
+    margin-bottom: 3rem;
+}
+
+.cta-buttons-container {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Form Utilities */
+.form-full-width {
+    width: 100%;
+}

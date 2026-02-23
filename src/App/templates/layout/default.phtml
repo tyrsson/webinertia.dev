@@ -15,10 +15,15 @@ $this->headMeta()
 // );
 
 // styles
+// $this->headLink()
+//     ->prependStylesheet('https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css')
+//     ->prependStylesheet($this->basePath('assets/css/pico-override.css'))
+//     ->prependStylesheet($this->basePath('assets/css/style.css'));
+
 $this->headLink()
-    ->appendStylesheet('https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css')
-    ->appendStylesheet($this->basePath('assets/css/pico-override.css'))
-    ->appendStylesheet($this->basePath('assets/css/style.css'));
+    ->prependStylesheet($this->basePath('assets/css/style.css'))
+    ->prependStylesheet($this->basePath('assets/css/pico-override.css'))
+    ->prependStylesheet('https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css');
 
 // head script files and script
 $this->headScript()

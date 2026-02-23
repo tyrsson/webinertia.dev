@@ -1,23 +1,26 @@
-<?php $this->headTitle('About Us'); ?>
+<?php
+$this->headTitle('About Us');
+$this->headLink()->appendStylesheet($this->basePath('assets/css/about.css'));
+?>
 <!-- Page Header -->
-<section style="padding: 6rem 4rem 4rem; text-align: center;">
-    <h1 class="hero-title" style="font-size: clamp(3rem, 6vw, 5rem);">
+<section class="page-header">
+    <h1 class="hero-title page-title">
         <span class="gradient-text">About Us</span>
     </h1>
     <div class="divider"></div>
-    <p class="hero-subtitle" style="max-width: 800px; margin: 2rem auto 0;">
+    <p class="hero-subtitle about-header-subtitle">
         We're a team of passionate developers, designers, and problem-solvers dedicated to pushing the boundaries of web technology
     </p>
 </section>
 
 <!-- Mission Section -->
-<section style="padding: 4rem;">
-    <div style="max-width: 1200px; margin: 0 auto;">
+<section class="mission-section">
+    <div class="mission-grid-wrapper">
         <div class="bento-grid">
             <div class="bento-card large">
                 <div class="card-icon">🎯</div>
                 <h3 class="card-title">Our Mission</h3>
-                <p class="card-description" style="font-size: 1.1rem; line-height: 1.8;">
+                <p class="card-description mission-card-description">
                     At Webinertia, we believe in the transformative power of technology. Our mission is to create digital experiences that not only meet business objectives but exceed user expectations. We combine technical excellence with creative innovation to deliver solutions that matter.
                 </p>
             </div>
@@ -66,31 +69,44 @@
 </section>
 
 <!-- Values Section -->
-<section style="padding: 6rem 4rem;">
+<section class="values-section">
     <div class="section-header">
         <h2 class="section-title"><span class="gradient-text">Our Values</span></h2>
         <div class="divider"></div>
     </div>
 
-    <div style="max-width: 800px; margin: 0 auto;">
-        <div class="bento-card" style="margin-bottom: 2rem;">
+    <div class="values-grid-wrapper">
+        <div class="bento-card values-card">
             <h3 class="card-title">Transparency</h3>
             <p class="card-description">
                 Open communication, honest timelines, and clear pricing. No hidden costs, no surprises.
             </p>
         </div>
-        <div class="bento-card" style="margin-bottom: 2rem;">
+        <div class="bento-card values-card">
             <h3 class="card-title">Excellence</h3>
             <p class="card-description">
                 We don't settle for "good enough." Every line of code, every design element is crafted with precision and care.
             </p>
         </div>
-        <div class="bento-card" style="margin-bottom: 2rem;">
+        <div class="bento-card values-card">
             <h3 class="card-title">Continuous Learning</h3>
             <p class="card-description">
                 Technology evolves rapidly, and so do we. Ongoing training and exploration keep us at the forefront of innovation.
             </p>
         </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section-base">
+    <h2 class="section-title cta-section-title">
+        <span class="gradient-text">Join Us on This Journey</span>
+    </h2>
+    <p class="section-subtitle cta-section-subtitle">
+        Let's create something amazing together
+    </p>
+    <a href="<?= $this->url('contact') ?>" class="btn-primary">Start Your Project</a>
+</section>
     </div>
 </section>
 
