@@ -26,6 +26,24 @@
 }
 
 /* Responsive adjustments for home page */
+@media (max-width: 768px) {
+    .hero-tech-stack-section {
+        padding: 3rem 0;
+    }
+
+    .home-cta-buttons {
+        flex-direction: column;
+    }
+
+    .btn-primary, .btn-outline {
+        width: 100%;
+    }
+
+    .floating-card {
+        display: none;
+    }
+}
+
 @media (max-width: 1024px) {
     .floating-card {
         display: none;

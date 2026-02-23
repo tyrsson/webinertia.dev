@@ -7,18 +7,15 @@ $this->headMeta()
     ->appendName('viewport', 'width=device-width, initial-scale=1')
     ->appendName('color-scheme', 'light dark');
 
-// $this->headLink(
-//     [
-//         'rel'  => 'shortcut icon',
-//         'href' => 'https://getlaminas.org/images/favicon/favicon.ico',
-//     ]
-// );
+$this->headLink(
+    [
+        'rel'  => 'icon',
+        'type' => 'image/svg+xml',
+        'href' => $this->basePath('assets/image/favicon.svg'),
+    ]
+);
 
 // styles
-// $this->headLink()
-//     ->prependStylesheet('https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css')
-//     ->prependStylesheet($this->basePath('assets/css/pico-override.css'))
-//     ->prependStylesheet($this->basePath('assets/css/style.css'));
 
 $this->headLink()
     ->prependStylesheet($this->basePath('assets/css/style.css'))
@@ -62,6 +59,18 @@ $this->headScript()
                 <li class="side-nav-item"><a href="<?= $this->url('contact') ?>" data-label="Contact">📧</a></li>
             </ul>
         </nav>
+
+        <!-- Mobile Hamburger Menu Toggle -->
+        <button class="mobile-menu-toggle" id="mobile-menu-toggle">☰</button>
+
+        <!-- Mobile Navigation Menu -->
+        <nav class="mobile-nav-menu" id="mobile-nav-menu">
+            <a href="<?= $this->url('home') ?>">🏠 Home</a>
+            <a href="<?= $this->url('services') ?>">⚡ Services</a>
+            <a href="<?= $this->url('about') ?>">💡 About</a>
+            <a href="<?= $this->url('contact') ?>">📧 Contact</a>
+        </nav>
+
         <main class="main-content">
             <?= $this->content ?>
         </main>
@@ -71,5 +80,34 @@ $this->headScript()
             </div>
         </footer>
         <?= $this->inlineScript() ?>
+
+        <!-- Mobile Menu Toggle Script -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const toggleBtn = document.getElementById('mobile-menu-toggle');
+                const mobileMenu = document.getElementById('mobile-nav-menu');
+                const menuLinks = mobileMenu.querySelectorAll('a');
+
+                // Toggle menu when hamburger is clicked
+                toggleBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    mobileMenu.classList.toggle('active');
+                });
+
+                // Close menu when a link is clicked
+                menuLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        mobileMenu.classList.remove('active');
+                    });
+                });
+
+                // Close menu when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (!mobileMenu.contains(e.target) && !toggleBtn.contains(e.target)) {
+                        mobileMenu.classList.remove('active');
+                    }
+                });
+            });
+        </script>
     </body>
 </html>

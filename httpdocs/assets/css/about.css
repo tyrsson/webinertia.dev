@@ -37,6 +37,18 @@
 }
 
 /* Responsive adjustments for about page */
+@media (max-width: 768px) {
+    .mission-section,
+    .values-section {
+        padding: 2rem 1rem;
+    }
+
+    .mission-grid-wrapper,
+    .values-grid-wrapper {
+        max-width: 100%;
+    }
+}
+
 @media (max-width: 1024px) {
     .mission-section,
     .values-section {

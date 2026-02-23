@@ -70,6 +70,33 @@
 }
 
 /* Responsive adjustments for project page */
+@media (max-width: 768px) {
+    .portfolio-section-wrapper {
+        padding: 1rem 0 3rem;
+    }
+
+    .process-section-wrapper {
+        padding: 1rem;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .process-circle {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .process-title {
+        font-size: 1.1rem;
+    }
+
+    .process-description {
+        font-size: 0.9rem;
+    }
+}
+
 @media (max-width: 1024px) {
     .process-section-wrapper {
         padding: 2rem;
