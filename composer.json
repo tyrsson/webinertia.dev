@@ -28,7 +28,7 @@
         "mezzio/mezzio-helpers": "^5.20",
         "mezzio/mezzio-laminasviewrenderer": "^3.0",
         "php-db/phpdb-mysql": "^0.2.0",
-        "webware/command-bus": "^0.4.0",
+        "webware/command-bus": "^0.5.0",
         "webware/commandbus-event": "^0.1.0"
     },
     "require-dev": {
