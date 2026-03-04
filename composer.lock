@@ -4,15 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "baa5f4ebf436b199d1a4ba62da24d9e0",
+    "content-hash": "1ab8f7271eb8e60d473ce86a4d1938c2",
     "packages": [
         {
             "name": "axleus/axleus-mailer",
-            "version": "0.2.x-dev",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/axleus/axleus-mailer.git",
+                "reference": "4bbb6bc027ee36b9a3c44e29380e4674b2d71d76"
+            },
             "dist": {
-                "type": "path",
-                "url": "../../Github/axleus/axleus-mailer",
-                "reference": "bd966e2126abeb734e489881a1948248ce03a775"
+                "type": "zip",
+                "url": "https://api.github.com/repos/axleus/axleus-mailer/zipball/4bbb6bc027ee36b9a3c44e29380e4674b2d71d76",
+                "reference": "4bbb6bc027ee36b9a3c44e29380e4674b2d71d76",
+                "shasum": ""
             },
             "require": {
                 "php": "~8.2.0 || ~8.3.0 || ~8.4.0 || ~8.5.0",
@@ -30,6 +36,7 @@
                 "webware/command-bus": "^0.5.0",
                 "webware/commandbus-event": "^0.1.0"
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "laminas": {
@@ -41,46 +48,7 @@
                     "Axleus\\Mailer\\": "src/"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "AxleusTest\\Mailer\\": "test/"
-                }
-            },
-            "scripts": {
-                "check": [
-                    "@cs-check",
-                    "@sa",
-                    "@test",
-                    "@test-integration"
-                ],
-                "cs-check": [
-                    "vendor/bin/php-cs-fixer check -v --show-progress=dots --stop-on-violation"
-                ],
-                "cs-fix": [
-                    "vendor/bin/php-cs-fixer fix"
-                ],
-                "test": [
-                    "phpunit --colors=always --testsuite \"unit test\""
-                ],
-                "test-coverage": [
-                    "phpunit --colors=always --coverage-clover clover.xml"
-                ],
-                "test-integration": [
-                    "phpunit --colors=always --testsuite \"integration test\""
-                ],
-                "sa": [
-                    "vendor/bin/phpstan analyse --memory-limit=256M"
-                ],
-                "sa-gen-baseline": [
-                    "vendor/bin/phpstan analyse --memory-limit=256M --generate-baseline"
-                ],
-                "sa-verbose": [
-                    "vendor/bin/phpstan analyse --memory-limit=256M -vv"
-                ],
-                "upload-coverage": [
-                    "coveralls -v"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-3-Clause"
             ],
@@ -94,17 +62,22 @@
             "homepage": "https://github.com/orgs/axleus/discussions",
             "keywords": [
                 "MailerInterface abstraction for mezzio applications",
+                "PHP mail",
                 "axleus",
-                "mezzio",
-                "php mail"
+                "mezzio"
             ],
             "support": {
+                "chat": "https://discord.gg/9TxQ74EPsG",
                 "issues": "https://github.com/axleus/axleus-mailer/issues",
-                "chat": "https://discord.gg/9TxQ74EPsG"
+                "source": "https://github.com/axleus/axleus-mailer/tree/master"
             },
-            "transport-options": {
-                "relative": true
-            }
+            "funding": [
+                {
+                    "url": "https://github.com/AXLEUS",
+                    "type": "github"
+                }
+            ],
+            "time": "2026-03-04T19:13:48+00:00"
         },
         {
             "name": "beberlei/assert",
@@ -7971,6 +7944,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "axleus/axleus-mailer": 20,
         "roave/security-advisories": 20
     },
     "prefer-stable": true,
