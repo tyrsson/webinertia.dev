@@ -1,6 +1,6 @@
 <?php
 $this->headTitle('Contact Us'); 
-$this->headLink()->appendStylesheet($this->basePath('assets/css/contact.css'));
+//$this->headLink()->appendStylesheet($this->basePath('assets/css/contact.css'));
 ?>
 <!-- Page Header -->
 <section class="page-header">
@@ -16,7 +16,7 @@ $this->headLink()->appendStylesheet($this->basePath('assets/css/contact.css'));
 <!-- Contact Form -->
 <section class="contact-container">
     <div class="contact-form">
-        <form>
+        <form action="<?= $this->url('process.contact') ?>" method="POST" enctype="multipart/form-data">
             <div class="contact-form-grid">
                 <div class="form-group">
                     <label>First Name</label>
@@ -134,7 +134,7 @@ $this->headLink()->appendStylesheet($this->basePath('assets/css/contact.css'));
         <div class="bento-card faq-card">
             <h3 class="card-title">What technologies do you work with?</h3>
             <p class="card-description">
-                We specialize in modern PHP frameworks (Laminas, Mezzio), and cloud platforms (AWS, Azure, GCP). We choose the best technology stack for your specific needs.
+                We specialize in modern PHP frameworks (Mezzio, Laminas, Slim, Swoole), and cloud platforms (AWS, Azure, GCP, Docker) to name a few. We choose the best technology stack for your specific needs.
             </p>
         </div>
 

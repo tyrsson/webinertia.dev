@@ -48,15 +48,23 @@ $this->headScript()
         <?= $this->headLink() ?>
         <?= $this->headScript() ?>
     </head>
-    <body>
+    <body hx-boost="true" hx-push-url="true" hx-target="main">
         <!-- Side Navigation -->
-        <nav class="side-nav">
+        <nav class="side-nav" id="side-nav">
             <div class="side-nav-logo">Webinertia</div>
             <ul class="side-nav-items">
-                <li class="side-nav-item"><a href="<?= $this->url('home') ?>" data-label="Home">🏠</a></li>
-                <li class="side-nav-item"><a href="<?= $this->url('services') ?>" data-label="Services">⚡</a></li>
-                <li class="side-nav-item"><a href="<?= $this->url('about') ?>" data-label="About">💡</a></li>
-                <li class="side-nav-item"><a href="<?= $this->url('contact') ?>" data-label="Contact">📧</a></li>
+                <li class="side-nav-item">
+                    <a href="<?= $this->url('home') ?>" data-label="Home">🏠</a>
+                </li>
+                <li class="side-nav-item">
+                    <a href="<?= $this->url('services') ?>" data-label="Services">⚡</a>
+                </li>
+                <li class="side-nav-item">
+                    <a href="<?= $this->url('about') ?>" data-label="About">💡</a>
+                </li>
+                <li class="side-nav-item">
+                    <a href="<?= $this->url('contact') ?>" data-label="Contact">📧</a>
+                </li>
             </ul>
         </nav>
 
@@ -81,8 +89,9 @@ $this->headScript()
         </footer>
         <?= $this->inlineScript() ?>
 
-        <!-- Mobile Menu Toggle Script -->
+        <!-- Menu Script -->
         <script>
+            // Toggle mobile menu visibility
             document.addEventListener('DOMContentLoaded', function() {
                 const toggleBtn = document.getElementById('mobile-menu-toggle');
                 const mobileMenu = document.getElementById('mobile-nav-menu');
