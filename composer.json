@@ -15,15 +15,9 @@
             "role": "Developer"
         }
     ],
-    "repositories": [
-        {
-            "type": "path",
-            "url": "../../Github/axleus/*"
-        }
-    ],
     "require": {
         "php": "~8.2.0 || ~8.3.0 || ~8.4.0 || ~8.5.0",
-        "axleus/axleus-mailer": "^0.2.0",
+        "axleus/axleus-mailer": "dev-master",
         "laminas/laminas-component-installer": "^3.7",
         "laminas/laminas-config-aggregator": "^1.19",
         "laminas/laminas-diactoros": "^3.8",
