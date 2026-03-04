@@ -45,6 +45,13 @@ final class RouteProvider implements RouteProviderInterface
             ),
             'contact'
         );
+        $routeCollector->post(
+            '/contact',
+            $middlewareFactory->prepare(
+                [Middleware\ContactMiddleware::class, Handler\ContactPageHandler::class]
+            ),
+            'process.contact'
+        );
         $routeCollector->get(
             '/projects',
             $middlewareFactory->prepare(

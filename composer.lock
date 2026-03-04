@@ -4,8 +4,108 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c9315d91a1bb0e5b733d6c33b33a458b",
+    "content-hash": "baa5f4ebf436b199d1a4ba62da24d9e0",
     "packages": [
+        {
+            "name": "axleus/axleus-mailer",
+            "version": "0.2.x-dev",
+            "dist": {
+                "type": "path",
+                "url": "../../Github/axleus/axleus-mailer",
+                "reference": "bd966e2126abeb734e489881a1948248ce03a775"
+            },
+            "require": {
+                "php": "~8.2.0 || ~8.3.0 || ~8.4.0 || ~8.5.0",
+                "phpmailer/phpmailer": "^7.0.0"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "^2.1",
+                "phpstan/phpstan-phpunit": "^2.0",
+                "phpunit/phpunit": "^11.5.42",
+                "psr/http-message": "^1.0",
+                "psr/http-server-handler": "^1.0",
+                "psr/http-server-middleware": "^1.0",
+                "roave/security-advisories": "dev-master",
+                "webware/coding-standard": "^0.1.0",
+                "webware/command-bus": "^0.5.0",
+                "webware/commandbus-event": "^0.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laminas": {
+                    "config-provider": "Axleus\\Mailer\\ConfigProvider"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Axleus\\Mailer\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "AxleusTest\\Mailer\\": "test/"
+                }
+            },
+            "scripts": {
+                "check": [
+                    "@cs-check",
+                    "@sa",
+                    "@test",
+                    "@test-integration"
+                ],
+                "cs-check": [
+                    "vendor/bin/php-cs-fixer check -v --show-progress=dots --stop-on-violation"
+                ],
+                "cs-fix": [
+                    "vendor/bin/php-cs-fixer fix"
+                ],
+                "test": [
+                    "phpunit --colors=always --testsuite \"unit test\""
+                ],
+                "test-coverage": [
+                    "phpunit --colors=always --coverage-clover clover.xml"
+                ],
+                "test-integration": [
+                    "phpunit --colors=always --testsuite \"integration test\""
+                ],
+                "sa": [
+                    "vendor/bin/phpstan analyse --memory-limit=256M"
+                ],
+                "sa-gen-baseline": [
+                    "vendor/bin/phpstan analyse --memory-limit=256M --generate-baseline"
+                ],
+                "sa-verbose": [
+                    "vendor/bin/phpstan analyse --memory-limit=256M -vv"
+                ],
+                "upload-coverage": [
+                    "coveralls -v"
+                ]
+            },
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Joey Smith",
+                    "email": "jsmith@webinertia.net"
+                }
+            ],
+            "description": "Php Mail abstraction for a variety of php mailer libraries for mezzio applications",
+            "homepage": "https://github.com/orgs/axleus/discussions",
+            "keywords": [
+                "MailerInterface abstraction for mezzio applications",
+                "axleus",
+                "mezzio",
+                "php mail"
+            ],
+            "support": {
+                "issues": "https://github.com/axleus/axleus-mailer/issues",
+                "chat": "https://discord.gg/9TxQ74EPsG"
+            },
+            "transport-options": {
+                "relative": true
+            }
+        },
         {
             "name": "beberlei/assert",
             "version": "v3.3.3",
@@ -1607,7 +1707,7 @@
         },
         {
             "name": "php-db/phpdb-mysql",
-            "version": "0.2.x-dev",
+            "version": "0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-db/phpdb-mysql.git",
@@ -1636,7 +1736,6 @@
                 "ext-pdo_mysql": "Required for PDO MySQL support",
                 "laminas/laminas-eventmanager": "Required for TableGateway events support"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laminas": {
@@ -1667,6 +1766,88 @@
                 "source": "https://github.com/php-db/phpdb-mysql"
             },
             "time": "2026-02-26T03:05:57+00:00"
+        },
+        {
+            "name": "phpmailer/phpmailer",
+            "version": "v7.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PHPMailer/PHPMailer.git",
+                "reference": "ebf1655bd5b99b3f97e1a3ec0a69e5f4cd7ea088"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/ebf1655bd5b99b3f97e1a3ec0a69e5f4cd7ea088",
+                "reference": "ebf1655bd5b99b3f97e1a3ec0a69e5f4cd7ea088",
+                "shasum": ""
+            },
+            "require": {
+                "ext-ctype": "*",
+                "ext-filter": "*",
+                "ext-hash": "*",
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
+                "doctrine/annotations": "^1.2.6 || ^1.13.3",
+                "php-parallel-lint/php-console-highlighter": "^1.0.0",
+                "php-parallel-lint/php-parallel-lint": "^1.3.2",
+                "phpcompatibility/php-compatibility": "^10.0.0@dev",
+                "squizlabs/php_codesniffer": "^3.13.5",
+                "yoast/phpunit-polyfills": "^1.0.4"
+            },
+            "suggest": {
+                "decomplexity/SendOauth2": "Adapter for using XOAUTH2 authentication",
+                "directorytree/imapengine": "For uploading sent messages via IMAP, see gmail example",
+                "ext-imap": "Needed to support advanced email address parsing according to RFC822",
+                "ext-mbstring": "Needed to send email in multibyte encoding charset or decode encoded addresses",
+                "ext-openssl": "Needed for secure SMTP sending and DKIM signing",
+                "greew/oauth2-azure-provider": "Needed for Microsoft Azure XOAUTH2 authentication",
+                "hayageek/oauth2-yahoo": "Needed for Yahoo XOAUTH2 authentication",
+                "league/oauth2-google": "Needed for Google XOAUTH2 authentication",
+                "psr/log": "For optional PSR-3 debug logging",
+                "symfony/polyfill-mbstring": "To support UTF-8 if the Mbstring PHP extension is not enabled (^1.2)",
+                "thenetworg/oauth2-azure": "Needed for Microsoft XOAUTH2 authentication"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PHPMailer\\PHPMailer\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-2.1-only"
+            ],
+            "authors": [
+                {
+                    "name": "Marcus Bointon",
+                    "email": "phpmailer@synchromedia.co.uk"
+                },
+                {
+                    "name": "Jim Jagielski",
+                    "email": "jimjag@gmail.com"
+                },
+                {
+                    "name": "Andy Prevost",
+                    "email": "codeworxtech@users.sourceforge.net"
+                },
+                {
+                    "name": "Brent R. Matzelle"
+                }
+            ],
+            "description": "PHPMailer is a full-featured email creation and transfer class for PHP",
+            "support": {
+                "issues": "https://github.com/PHPMailer/PHPMailer/issues",
+                "source": "https://github.com/PHPMailer/PHPMailer/tree/v7.0.2"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/Synchro",
+                    "type": "github"
+                }
+            ],
+            "time": "2026-01-09T18:02:33+00:00"
         },
         {
             "name": "psr/container",
@@ -2182,12 +2363,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/tyrsson/commandbus-event.git",
-                "reference": "25812d31e35853ea4b03ff7fc4b943597bd76a33"
+                "reference": "f0b1896efb20c094be77adaaef16bae25e5f62a9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tyrsson/commandbus-event/zipball/25812d31e35853ea4b03ff7fc4b943597bd76a33",
-                "reference": "25812d31e35853ea4b03ff7fc4b943597bd76a33",
+                "url": "https://api.github.com/repos/tyrsson/commandbus-event/zipball/f0b1896efb20c094be77adaaef16bae25e5f62a9",
+                "reference": "f0b1896efb20c094be77adaaef16bae25e5f62a9",
                 "shasum": ""
             },
             "require": {
@@ -2236,7 +2417,7 @@
                 "issues": "https://github.com/tyrsson/commandbus-event/issues",
                 "source": "https://github.com/tyrsson/commandbus-event/tree/0.1.x"
             },
-            "time": "2026-02-26T08:48:45+00:00"
+            "time": "2026-03-04T08:39:38+00:00"
         }
     ],
     "packages-dev": [
@@ -4064,12 +4245,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                "reference": "141cd1138ae2bdb6a168c4a13dbd7aac19718dd8"
+                "reference": "5a17df9a478a03dff7428a3172cf7204d4d017a8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/141cd1138ae2bdb6a168c4a13dbd7aac19718dd8",
-                "reference": "141cd1138ae2bdb6a168c4a13dbd7aac19718dd8",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/5a17df9a478a03dff7428a3172cf7204d4d017a8",
+                "reference": "5a17df9a478a03dff7428a3172cf7204d4d017a8",
                 "shasum": ""
             },
             "conflict": {
@@ -4370,7 +4551,7 @@
                 "friendsoftypo3/openid": ">=4.5,<4.5.31|>=4.7,<4.7.16|>=6,<6.0.11|>=6.1,<6.1.6",
                 "froala/wysiwyg-editor": "<=4.3",
                 "frosh/adminer-platform": "<2.2.1",
-                "froxlor/froxlor": "<=2.2.5",
+                "froxlor/froxlor": "<=2.3.3",
                 "frozennode/administrator": "<=5.0.12",
                 "fuel/core": "<1.8.1",
                 "funadmin/funadmin": "<=7.1.0.0-RC4",
@@ -4420,7 +4601,7 @@
                 "ibexa/solr": ">=4.5,<4.5.4",
                 "ibexa/user": ">=4,<4.4.3|>=5,<5.0.4",
                 "icecoder/icecoder": "<=8.1",
-                "idno/known": "<=1.6.2",
+                "idno/known": "<1.6.4",
                 "ilicmiljan/secure-props": ">=1.2,<1.2.2",
                 "illuminate/auth": "<5.5.10",
                 "illuminate/cookie": ">=4,<=4.0.11|>=4.1,<6.18.31|>=7,<7.22.4",
@@ -4812,7 +4993,7 @@
                 "starcitizentools/short-description": ">=4,<4.0.1",
                 "starcitizentools/tabber-neue": ">=1.9.1,<2.7.2|>=3,<3.1.1",
                 "starcitizenwiki/embedvideo": "<=4",
-                "statamic/cms": "<5.73.10|>=6,<6.4",
+                "statamic/cms": "<5.73.11|>=6,<6.4",
                 "stormpath/sdk": "<9.9.99",
                 "studio-42/elfinder": "<=2.1.64",
                 "studiomitte/friendlycaptcha": "<0.1.4",
@@ -5082,7 +5263,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-02-27T22:06:51+00:00"
+            "time": "2026-03-03T18:18:18+00:00"
         },
         {
             "name": "sebastian/cli-parser",

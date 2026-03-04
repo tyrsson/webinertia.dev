@@ -107,6 +107,12 @@ body::before {
     transform: translateX(5px);
 }
 
+.side-nav-item a.active {
+    background: var(--gradient-1);
+    color: white;
+    transform: translateX(5px);
+}
+
 .side-nav-item a::after {
     content: attr(data-label);
     position: absolute;
@@ -503,6 +509,17 @@ input:focus, select:focus, textarea:focus {
     box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
 }
 
+select option {
+    background-color: #0F0F1E;
+    color: #FFFFFF;
+}
+
+select option:checked,
+select option:hover {
+    background-color: #8B5CF6;
+    color: #FFFFFF;
+}
+
 textarea {
     resize: vertical;
     min-height: 150px;
@@ -853,5 +870,361 @@ footer {
 @media (max-width: 768px) {
     .mobile-menu-toggle {
         display: block;
+    }
+}
+
+/* About Page Specific Styles */
+
+/* About page header with extended width for subtitle */
+.about-header-subtitle {
+    max-width: 800px;
+    margin: 2rem auto 0;
+}
+
+/* Mission section wrapper */
+.mission-section {
+    padding: 4rem;
+}
+
+.mission-grid-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Mission card description styling */
+.mission-card-description {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+/* Values section */
+.values-section {
+    padding: 6rem 4rem;
+}
+
+.values-grid-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.values-card {
+    margin-bottom: 2rem;
+}
+
+/* Responsive adjustments for about page */
+@media (max-width: 768px) {
+    .mission-section,
+    .values-section {
+        padding: 2rem 1rem;
+    }
+
+    .mission-grid-wrapper,
+    .values-grid-wrapper {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 1024px) {
+    .mission-section,
+    .values-section {
+        padding: 4rem 2rem;
+    }
+}
+
+/* Contact Page Specific Styles */
+
+/* Contact form grid layout */
+.contact-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.contact-form-full-width {
+    grid-column: span 2;
+}
+
+/* Contact info section */
+.contact-info-section {
+    padding: 4rem;
+}
+
+/* Contact email link styling */
+.contact-email-link {
+    color: var(--primary-cyan);
+    text-decoration: none;
+}
+
+.contact-email-link:hover {
+    text-decoration: underline;
+}
+
+/* FAQ section cards */
+.faq-card {
+    margin-bottom: 1.5rem;
+}
+
+/* Responsive adjustments for contact page */
+@media (max-width: 768px) {
+    .contact-form-grid {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+
+    .contact-form-full-width {
+        grid-column: span 1;
+    }
+
+    .contact-info-section {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .contact-form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-form-full-width {
+        grid-column: span 1;
+    }
+
+    .contact-info-section {
+        padding: 2rem;
+    }
+}
+
+/* Home Page Specific Styles */
+
+/* Floating Card Content */
+.floating-card-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.floating-card-text {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* Tech Stack Section */
+.hero-tech-stack-section {
+    padding: 6rem 0;
+    background: var(--darker-bg);
+}
+
+/* CTA Section with buttons */
+.home-cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Responsive adjustments for home page */
+@media (max-width: 768px) {
+    .hero-tech-stack-section {
+        padding: 3rem 0;
+    }
+
+    .home-cta-buttons {
+        flex-direction: column;
+    }
+
+    .btn-primary, .btn-outline {
+        width: 100%;
+    }
+
+    .floating-card {
+        display: none;
+    }
+}
+
+@media (max-width: 1024px) {
+    .floating-card {
+        display: none;
+    }
+}
+
+/* Project Page Specific Styles */
+
+/* Portfolio section wrapper */
+.portfolio-section-wrapper {
+    padding: 2rem 0 6rem;
+}
+
+/* Portfolio image gradients */
+.portfolio-image-gradient-1 {
+    background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%);
+}
+
+.portfolio-image-gradient-2 {
+    background: linear-gradient(135deg, #06B6D4 0%, #8B5CF6 100%);
+}
+
+.portfolio-image-gradient-3 {
+    background: linear-gradient(135deg, #FBBF24 0%, #8B5CF6 100%);
+}
+
+/* Process section */
+.process-section-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 4rem;
+}
+
+.process-item {
+    text-align: center;
+}
+
+.process-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+.process-circle-1 {
+    background: var(--gradient-1);
+}
+
+.process-circle-2 {
+    background: var(--gradient-2);
+}
+
+.process-circle-3 {
+    background: var(--gradient-3);
+}
+
+.process-circle-4 {
+    background: var(--gradient-1);
+}
+
+.process-title {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.process-description {
+    color: var(--text-secondary);
+}
+
+/* Responsive adjustments for project page */
+@media (max-width: 768px) {
+    .portfolio-section-wrapper {
+        padding: 1rem 0 3rem;
+    }
+
+    .process-section-wrapper {
+        padding: 1rem;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .process-circle {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .process-title {
+        font-size: 1.1rem;
+    }
+
+    .process-description {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .process-section-wrapper {
+        padding: 2rem;
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Service Page Specific Styles */
+
+/* Service grid wrapper */
+.service-grid-wrapper {
+    padding: 4rem 0;
+}
+
+/* Service tag styling - Purple variant */
+.service-tags-container-purple {
+    margin-top: 2rem;
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.service-tag-purple {
+    padding: 0.5rem 1rem;
+    background: rgba(139, 92, 246, 0.2);
+    border-radius: 20px;
+    font-size: 0.85rem;
+}
+
+/* Service tag styling - Cyan variant */
+.service-tags-container-cyan {
+    margin-top: 2rem;
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.service-tag-cyan {
+    padding: 0.5rem 1rem;
+    background: rgba(6, 182, 212, 0.2);
+    border-radius: 20px;
+    font-size: 0.85rem;
+}
+
+/* Service CTA section with card background */
+.service-cta-section {
+    padding: 8rem 4rem;
+    text-align: center;
+    background: var(--card-bg);
+}
+
+/* Responsive adjustments for service page */
+@media (max-width: 768px) {
+    .service-grid-wrapper {
+        padding: 1rem 0;
+    }
+
+    .service-tags-container-purple,
+    .service-tags-container-cyan {
+        margin-top: 1rem;
+        gap: 0.5rem;
+    }
+
+    .service-tag-purple,
+    .service-tag-cyan {
+        padding: 0.35rem 0.75rem;
+        font-size: 0.8rem;
+    }
+
+    .service-cta-section {
+        padding: 3rem 1.5rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .service-grid-wrapper {
+        padding: 2rem 0;
+    }
+
+    .service-cta-section {
+        padding: 4rem 2rem;
     }
 }

@@ -14,9 +14,11 @@ $cacheConfig = [
 ];
 
 $aggregator = new ConfigAggregator([
-    \Webware\CommandBus\Event\ConfigProvider::class,
+    \Axleus\Mailer\ConfigProvider::class,
+
     \Phly\EventDispatcher\ConfigProvider::class,
     \Webware\CommandBus\ConfigProvider::class,
+    \Webware\CommandBus\Event\ConfigProvider::class,
     PhpDb\ConfigProvider::class,
     \PhpDb\Mysql\ConfigProvider::class,
     Laminas\View\ConfigProvider::class,
@@ -30,7 +32,7 @@ $aggregator = new ConfigAggregator([
     Mezzio\ConfigProvider::class,
     Mezzio\Router\ConfigProvider::class,
     Laminas\Diactoros\ConfigProvider::class,
-    class_exists(Webware\Traccio\ConfigProvider::class, )
+    class_exists(Webware\Traccio\ConfigProvider::class)
         ? Webware\Traccio\ConfigProvider::class
         : function () {
             return [];
