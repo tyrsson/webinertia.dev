@@ -91,6 +91,14 @@ $this->headScript()
 
         <!-- Menu Script -->
         <script>
+            // Set .active on the matching side-nav link; never touches mobile nav links
+            function setActiveNav() {
+                const currentPath = window.location.pathname;
+                document.querySelectorAll('#side-nav .side-nav-item a').forEach(function(link) {
+                    link.classList.toggle('active', link.pathname === currentPath);
+                });
+            }
+
             // Toggle mobile menu visibility
             document.addEventListener('DOMContentLoaded', function() {
                 const toggleBtn = document.getElementById('mobile-menu-toggle');
@@ -116,7 +124,16 @@ $this->headScript()
                         mobileMenu.classList.remove('active');
                     }
                 });
+
+                // Set active nav on initial page load
+                setActiveNav();
             });
+
+            // Update active nav after HTMX swaps content (hx-push-url has already updated location)
+            document.addEventListener('htmx:afterSettle', setActiveNav);
+
+            // Update active nav when HTMX restores a page from history (back/forward)
+            document.addEventListener('htmx:historyRestore', setActiveNav);
         </script>
     </body>
 </html>
