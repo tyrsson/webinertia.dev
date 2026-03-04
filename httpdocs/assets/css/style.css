@@ -110,7 +110,7 @@ body::before {
 .side-nav-item a.active {
     background: var(--gradient-1);
     color: white;
-    transform: translateX(5px);
+    /* transform: translateX(5px); */
 }
 
 .side-nav-item a::after {
