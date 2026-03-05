@@ -551,6 +551,7 @@ footer {
     .side-nav {
         width: 0;
         overflow: hidden;
+        visibility: hidden;
     }
 
     .main-content, footer {
@@ -689,6 +690,7 @@ footer {
     .side-nav {
         width: 0;
         overflow: hidden;
+        visibility: hidden;
     }
 
     .main-content, footer {
@@ -867,7 +869,7 @@ footer {
     border-bottom: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .mobile-menu-toggle {
         display: block;
     }
@@ -999,7 +1001,8 @@ footer {
 /* Floating Card Content */
 .floating-card-title {
     font-size: 1.2rem;
-    margin-bottom: 0.5rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem;
 }
 
 .floating-card-text {
