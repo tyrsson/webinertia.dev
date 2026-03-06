@@ -15,6 +15,7 @@ declare(strict_types=1);
 namespace App\Middleware;
 
 use Axleus\Mailer\MailerInterface;
+use Axleus\Mailer\Adapter\MessageInterface;
 use Psr\Container\ContainerInterface;
 use Webware\CommandBus\CommandBusInterface;
 
@@ -26,7 +27,7 @@ final readonly class ContactMiddlewareFactory
 
         return new ContactMiddleware(
             $commandBus,
-            $container->get('config')[MailerInterface::class] ?? []
+            $container->get('config')[MessageInterface::class] ?? []
         );
     }
 }
