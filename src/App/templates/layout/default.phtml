@@ -11,7 +11,7 @@ $this->headLink(
     [
         'rel'  => 'icon',
         'type' => 'image/svg+xml',
-        'href' => $this->basePath('assets/image/favicon.svg'),
+        'href' => $this->basePath('favicon.svg'),
     ]
 );
 
@@ -20,7 +20,9 @@ $this->headLink(
 $this->headLink()
     ->prependStylesheet($this->basePath('assets/css/style.css'))
     ->prependStylesheet($this->basePath('assets/css/pico-override.css'))
-    ->prependStylesheet('https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css');
+    ->prependStylesheet('https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css')
+    ->prependStylesheet('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&display=swap')
+    ;
 
 // head script files and script
 $this->headScript()
@@ -42,9 +44,9 @@ $this->headScript()
         <?= $this->headTitle('Webinertia')->setSeparator(' | ') ?>
         <?= $this->headMeta() ?>
             <!-- Google Fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&display=swap" rel="stylesheet"> -->
         <?= $this->headLink() ?>
         <?= $this->headScript() ?>
     </head>
@@ -84,7 +86,7 @@ $this->headScript()
         </main>
         <footer>
             <div class="footer-content">
-                <p>&copy; <?= date('Y') ?> <span class="footer-brand">Webinertia</span> <span class="accent-dot"></span> Shaping Digital Futures</p>
+                <p>&copy; <?= date('Y') ?> <span class="footer-brand">Webinertia L.L.C.</span> <span class="accent-dot"></span> Shaping Digital Futures</p>
             </div>
         </footer>
         <?= $this->inlineScript() ?>

@@ -58,22 +58,22 @@ class ConfigProvider
     public function getDependencies(): array
     {
         return [
-            'aliases'   => [
+            'aliases'    => [
                 FilterServerRequestInterface::class => Request\HtmxFilter::class,
             ],
             'factories'  => [
-                Handler\AboutPageHandler::class   => Container\AboutPageHandlerFactory::class,
-                Handler\ContactPageHandler::class => Container\ContactPageHandlerFactory::class,
-                Handler\HomePageHandler::class    => Container\HomePageHandlerFactory::class,
-                Handler\ProjectPageHandler::class => Container\ProjectPageHandlerFactory::class,
-                Handler\ServicePageHandler::class => Container\ServicePageHandlerFactory::class,
+                Handler\AboutPageHandler::class     => Container\AboutPageHandlerFactory::class,
+                Handler\ContactPageHandler::class   => Container\ContactPageHandlerFactory::class,
+                Handler\HomePageHandler::class      => Container\HomePageHandlerFactory::class,
+                Handler\ProjectPageHandler::class   => Container\ProjectPageHandlerFactory::class,
+                Handler\ServicePageHandler::class   => Container\ServicePageHandlerFactory::class,
                 Middleware\ContactMiddleware::class => Middleware\ContactMiddlewareFactory::class,
-                Middleware\HtmxMiddleware::class => Middleware\HtmxMiddlewareFactory::class,
-                RouteProvider::class              => Container\RouteProviderFactory::class,
+                Middleware\HtmxMiddleware::class    => Middleware\HtmxMiddlewareFactory::class,
+                RouteProvider::class                => Container\RouteProviderFactory::class,
             ],
             'invokables' => [
                 Handler\PingHandler::class => Handler\PingHandler::class,
-                Request\HtmxFilter::class    => Request\HtmxFilter::class,
+                Request\HtmxFilter::class  => Request\HtmxFilter::class,
             ],
         ];
     }
