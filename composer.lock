@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/axleus/axleus-mailer.git",
-                "reference": "d1bc7e64873afbe38612c5408e200511802da4e0"
+                "reference": "2de302c2ceac477df29bd2376cbe6d06b915be8f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/axleus/axleus-mailer/zipball/d1bc7e64873afbe38612c5408e200511802da4e0",
-                "reference": "d1bc7e64873afbe38612c5408e200511802da4e0",
+                "url": "https://api.github.com/repos/axleus/axleus-mailer/zipball/2de302c2ceac477df29bd2376cbe6d06b915be8f",
+                "reference": "2de302c2ceac477df29bd2376cbe6d06b915be8f",
                 "shasum": ""
             },
             "require": {
@@ -77,7 +77,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-03-06T18:38:01+00:00"
+            "time": "2026-03-06T20:21:23+00:00"
         },
         {
             "name": "beberlei/assert",
