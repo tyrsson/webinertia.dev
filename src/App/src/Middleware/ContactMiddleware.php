@@ -33,8 +33,9 @@ final readonly class ContactMiddleware implements MiddlewareInterface
     {
         $data = $request->getParsedBody();
         $this->commandBus->handle(new SendEmailCommand(
-            to: $this->config['to'] ?? 'contact@example.com',
-            subject: 'New Contact Form Submission',
+            to: $this->config['to'] ?? 'contact@webinertia.dev',
+            from: $data['email'] ?? 'no-reply@example.com',
+            subject: 'Webinertia Contact Form Submission',
             body: sprintf(
                 "Name: %s %s\nEmail: %s\nPhone: %s\nCompany: %s\nService Needed: %s\nBudget Range: %s\nProject Details: %s",
                 $data['firstname'] ?? '',
