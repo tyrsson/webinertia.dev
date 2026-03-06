@@ -2,13 +2,11 @@
 
 declare(strict_types=1);
 
-use Axleus\Mailer\Adapter\AdapterInterface;
+use Axleus\Mailer\Adapter\MessageInterface;
 use Axleus\Mailer\MailerInterface;
 
 return [
-    MailerInterface::class => [
-        AdapterInterface::class => [
-            'to' => 'jsmith@webinertia.net',
-        ],
+    MessageInterface::class => [
+        'to' => 'jsmith@webinertia.net',
     ],
 ];
