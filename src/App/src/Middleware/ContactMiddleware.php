@@ -2,6 +2,16 @@
 
 declare(strict_types=1);
 
+/**
+ * This file is part of the Tyrsson Webinertia package.
+ *
+ * Copyright (c) 2026 Joey Smith <jsmith@webinertia.net>
+ * and contributors.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace App\Middleware;
 
 use Axleus\Mailer\CommandBus\SendEmailCommand;
@@ -16,9 +26,8 @@ final readonly class ContactMiddleware implements MiddlewareInterface
 {
     public function __construct(
         private CommandBusInterface $commandBus,
-        private array $config
-    ) {
-    }
+        private array $config,
+    ) {}
 
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
@@ -29,16 +38,17 @@ final readonly class ContactMiddleware implements MiddlewareInterface
             body: sprintf(
                 "Name: %s %s\nEmail: %s\nPhone: %s\nCompany: %s\nService Needed: %s\nBudget Range: %s\nProject Details: %s",
                 $data['firstname'] ?? '',
-                $data['lastname'] ?? '',
-                $data['email'] ?? '',
-                $data['phone'] ?? '',
-                $data['company'] ?? '',
-                $data['service'] ?? '',
-                $data['budget'] ?? '',
-                $data['message'] ?? ''
+                $data['lastname']  ?? '',
+                $data['email']     ?? '',
+                $data['phone']     ?? '',
+                $data['company']   ?? '',
+                $data['service']   ?? '',
+                $data['budget']    ?? '',
+                $data['message']   ?? ''
             ),
             event: new MessageEvent()
         ));
+
         // Middleware logic goes here
         return $handler->handle($request);
     }

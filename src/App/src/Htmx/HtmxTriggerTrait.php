@@ -2,6 +2,16 @@
 
 declare(strict_types=1);
 
+/**
+ * This file is part of the Tyrsson Webinertia package.
+ *
+ * Copyright (c) 2026 Joey Smith <jsmith@webinertia.net>
+ * and contributors.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace App\Htmx;
 
 use App\Htmx\ResponseHeaders as Htmx;
@@ -14,7 +24,7 @@ trait HtmxTriggerTrait
 
     public function htmxTrigger(
         array $data,
-        ?string $event = self::SYSTEM_MESSAGE
+        ?string $event = self::SYSTEM_MESSAGE,
     ): void {
         $this->headers[Htmx::HX_Trigger->value] = json_encode([$event => $data]);
     }

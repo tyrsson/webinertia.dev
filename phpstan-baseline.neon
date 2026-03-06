@@ -1,2 +1,253 @@
 parameters:
 	ignoreErrors:
+		-
+			message: '#^Parameter \#1 \$template of class App\\Handler\\AboutPageHandler constructor expects Mezzio\\Template\\TemplateRendererInterface\|null, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/App/src/Container/AboutPageHandlerFactory.php
+
+		-
+			message: '#^Parameter \#1 \$template of class App\\Handler\\ContactPageHandler constructor expects Mezzio\\Template\\TemplateRendererInterface\|null, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/App/src/Container/ContactPageHandlerFactory.php
+
+		-
+			message: '#^Parameter \#1 \$template of class App\\Handler\\ProjectPageHandler constructor expects Mezzio\\Template\\TemplateRendererInterface\|null, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/App/src/Container/ProjectPageHandlerFactory.php
+
+		-
+			message: '#^Parameter \#1 \$template of class App\\Handler\\ServicePageHandler constructor expects Mezzio\\Template\\TemplateRendererInterface\|null, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/App/src/Container/ServicePageHandlerFactory.php
+
+		-
+			message: '#^Trait App\\Htmx\\HtmxHandlerTrait is used zero times and is not analysed\.$#'
+			identifier: trait.unused
+			count: 1
+			path: src/App/src/Htmx/HtmxHandlerTrait.php
+
+		-
+			message: '#^Trait App\\Htmx\\HtmxResponseTrait is used zero times and is not analysed\.$#'
+			identifier: trait.unused
+			count: 1
+			path: src/App/src/Htmx/HtmxResponseTrait.php
+
+		-
+			message: '#^Trait App\\Htmx\\HtmxTriggerTrait is used zero times and is not analysed\.$#'
+			identifier: trait.unused
+			count: 1
+			path: src/App/src/Htmx/HtmxTriggerTrait.php
+
+		-
+			message: '#^Method App\\Htmx\\RequestHeaders\:\:names\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/App/src/Htmx/RequestHeaders.php
+
+		-
+			message: '#^Method App\\Htmx\\RequestHeaders\:\:toArray\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/App/src/Htmx/RequestHeaders.php
+
+		-
+			message: '#^Method App\\Htmx\\RequestHeaders\:\:values\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/App/src/Htmx/RequestHeaders.php
+
+		-
+			message: '#^Parameter \#1 \$keys of function array_combine expects array\<int\|string\>, array given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/App/src/Htmx/RequestHeaders.php
+
+		-
+			message: '#^Method App\\Htmx\\ResponseHeaders\:\:names\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/App/src/Htmx/ResponseHeaders.php
+
+		-
+			message: '#^Method App\\Htmx\\ResponseHeaders\:\:toArray\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/App/src/Htmx/ResponseHeaders.php
+
+		-
+			message: '#^Method App\\Htmx\\ResponseHeaders\:\:values\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/App/src/Htmx/ResponseHeaders.php
+
+		-
+			message: '#^Parameter \#1 \$keys of function array_combine expects array\<int\|string\>, array given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/App/src/Htmx/ResponseHeaders.php
+
+		-
+			message: '#^Cannot access offset ''budget'' on array\|object\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/App/src/Middleware/ContactMiddleware.php
+
+		-
+			message: '#^Cannot access offset ''company'' on array\|object\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/App/src/Middleware/ContactMiddleware.php
+
+		-
+			message: '#^Cannot access offset ''email'' on array\|object\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/App/src/Middleware/ContactMiddleware.php
+
+		-
+			message: '#^Cannot access offset ''firstname'' on array\|object\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/App/src/Middleware/ContactMiddleware.php
+
+		-
+			message: '#^Cannot access offset ''lastname'' on array\|object\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/App/src/Middleware/ContactMiddleware.php
+
+		-
+			message: '#^Cannot access offset ''message'' on array\|object\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/App/src/Middleware/ContactMiddleware.php
+
+		-
+			message: '#^Cannot access offset ''phone'' on array\|object\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/App/src/Middleware/ContactMiddleware.php
+
+		-
+			message: '#^Cannot access offset ''service'' on array\|object\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/App/src/Middleware/ContactMiddleware.php
+
+		-
+			message: '#^Class Axleus\\Mailer\\Event\\MessageEvent referenced with incorrect case\: Axleus\\mailer\\Event\\MessageEvent\.$#'
+			identifier: class.nameCase
+			count: 2
+			path: src/App/src/Middleware/ContactMiddleware.php
+
+		-
+			message: '#^Method App\\Middleware\\ContactMiddleware\:\:__construct\(\) has parameter \$config with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/App/src/Middleware/ContactMiddleware.php
+
+		-
+			message: '#^Parameter \#2 \.\.\.\$values of function sprintf expects bool\|float\|int\|string\|null, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/App/src/Middleware/ContactMiddleware.php
+
+		-
+			message: '#^Parameter \#3 \.\.\.\$values of function sprintf expects bool\|float\|int\|string\|null, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/App/src/Middleware/ContactMiddleware.php
+
+		-
+			message: '#^Parameter \#4 \.\.\.\$values of function sprintf expects bool\|float\|int\|string\|null, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/App/src/Middleware/ContactMiddleware.php
+
+		-
+			message: '#^Parameter \#5 \.\.\.\$values of function sprintf expects bool\|float\|int\|string\|null, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/App/src/Middleware/ContactMiddleware.php
+
+		-
+			message: '#^Parameter \#6 \.\.\.\$values of function sprintf expects bool\|float\|int\|string\|null, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/App/src/Middleware/ContactMiddleware.php
+
+		-
+			message: '#^Parameter \#7 \.\.\.\$values of function sprintf expects bool\|float\|int\|string\|null, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/App/src/Middleware/ContactMiddleware.php
+
+		-
+			message: '#^Parameter \#8 \.\.\.\$values of function sprintf expects bool\|float\|int\|string\|null, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/App/src/Middleware/ContactMiddleware.php
+
+		-
+			message: '#^Parameter \#9 \.\.\.\$values of function sprintf expects bool\|float\|int\|string\|null, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/App/src/Middleware/ContactMiddleware.php
+
+		-
+			message: '#^Parameter \$to of class Axleus\\Mailer\\CommandBus\\SendEmailCommand constructor expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/App/src/Middleware/ContactMiddleware.php
+
+		-
+			message: '#^Cannot access offset ''Axleus\\\\Mailer\\\\MailerInterface'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/App/src/Middleware/ContactMiddlewareFactory.php
+
+		-
+			message: '#^Parameter \#1 \$commandBus of class App\\Middleware\\ContactMiddleware constructor expects Webware\\CommandBus\\CommandBusInterface, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/App/src/Middleware/ContactMiddlewareFactory.php
+
+		-
+			message: '#^Parameter \#2 \$config of class App\\Middleware\\ContactMiddleware constructor expects array, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/App/src/Middleware/ContactMiddlewareFactory.php
+
+		-
+			message: '#^Method App\\Middleware\\HtmxMiddleware\:\:__construct\(\) has parameter \$htmxConfig with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/App/src/Middleware/HtmxMiddleware.php
+
+		-
+			message: '#^Property App\\Middleware\\HtmxMiddleware\:\:\$htmxConfig is never read, only written\.$#'
+			identifier: property.onlyWritten
+			count: 1
+			path: src/App/src/Middleware/HtmxMiddleware.php
+
+		-
+			message: '#^Parameter \#1 \$template of class App\\Middleware\\HtmxMiddleware constructor expects Mezzio\\Template\\TemplateRendererInterface, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/App/src/Middleware/HtmxMiddlewareFactory.php
+
+		-
+			message: '#^Parameter \#2 \$htmxConfig of class App\\Middleware\\HtmxMiddleware constructor expects array, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/App/src/Middleware/HtmxMiddlewareFactory.php
+
+		-
+			message: '#^Parameter \#1 \$array of function array_flip expects array\<int\|string\>, array given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/App/src/Request/HtmxFilter.php

@@ -2,26 +2,37 @@
 
 declare(strict_types=1);
 
+/**
+ * This file is part of the Tyrsson Webinertia package.
+ *
+ * Copyright (c) 2026 Joey Smith <jsmith@webinertia.net>
+ * and contributors.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace App\Htmx;
 
 enum HtmxAttributes: string
 {
     /**
-     * @link https://htmx.org/reference/#attributes
+     * @see https://htmx.org/reference/#attributes
      */
-    case HX_Get         = 'hx-get';
-    case HX_Post        = 'hx-post';
-    case HX_On          = 'hx-on';
-    case HX_Push_Url    = 'hx-push-url';
-    case HX_Select      = 'hx-select';
-    case HX_Select_Oob  = 'hx-select-oob';
-    case HX_Swap        = 'hx-swap';
-    case HX_Swap_Oob    = 'hx-swap-oob';
-    case HX_Target      = 'hx-target';
-    case HX_Trigger     = 'hx-trigger';
-    case HX_Vals        = 'hx-vals';
+    case HX_Get        = 'hx-get';
+    case HX_Post       = 'hx-post';
+    case HX_On         = 'hx-on';
+    case HX_Push_Url   = 'hx-push-url';
+    case HX_Select     = 'hx-select';
+    case HX_Select_Oob = 'hx-select-oob';
+    case HX_Swap       = 'hx-swap';
+    case HX_Swap_Oob   = 'hx-swap-oob';
+    case HX_Target     = 'hx-target';
+    case HX_Trigger    = 'hx-trigger';
+    case HX_Vals       = 'hx-vals';
+
     /**
-     * @link https://htmx.org/reference/#attributes-additional
+     * @see https://htmx.org/reference/#attributes-additional
      */
     case HX_Boost       = 'hx-boost';
     case HX_Confirm     = 'hx-confirm';
