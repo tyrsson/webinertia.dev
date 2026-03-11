@@ -14,9 +14,11 @@ declare(strict_types=1);
 
 namespace App;
 
+use Axleus\Message\Middleware\MessageMiddleware;
 use Mezzio\MiddlewareFactoryInterface;
 use Mezzio\Router\RouteCollectorInterface;
 use Mezzio\Router\RouteProviderInterface;
+use Mezzio\Session\SessionMiddleware;
 
 final class RouteProvider implements RouteProviderInterface
 {
@@ -48,7 +50,10 @@ final class RouteProvider implements RouteProviderInterface
         $routeCollector->post(
             '/contact',
             $middlewareFactory->prepare(
-                [Middleware\ContactMiddleware::class, Handler\ContactPageHandler::class]
+                [
+                    Contact\ContactMiddleware::class,
+                    Handler\ContactPageHandler::class
+                ]
             ),
             'process.contact'
         );
