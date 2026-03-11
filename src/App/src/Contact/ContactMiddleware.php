@@ -12,7 +12,7 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace App\Middleware;
+namespace App\Contact;
 
 use Axleus\Mailer\CommandBus\SendEmailCommand;
 use Axleus\mailer\Event\MessageEvent;
@@ -21,6 +21,7 @@ use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 use Webware\CommandBus\CommandBusInterface;
+use Webware\CommandBus\Command\CommandResult;
 
 final readonly class ContactMiddleware implements MiddlewareInterface
 {
@@ -31,11 +32,11 @@ final readonly class ContactMiddleware implements MiddlewareInterface
 
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
-        $data = $request->getParsedBody();
-        $this->commandBus->handle(new SendEmailCommand(
+        $data   = $request->getParsedBody();
+        $result = $this->commandBus->handle(new SendEmailCommand(
             to: $this->config['to'] ?? 'contact@webinertia.dev',
-            from: $data['email'] ?? 'no-reply@example.com',
-            subject: 'Webinertia Contact Form Submission',
+            from: $this->config['from'] ?? 'no-reply@example.com',
+            subject: $this->config['subject'] ?? 'Webinertia Contact Form Submission',
             body: sprintf(
                 "Name: %s %s\nEmail: %s\nPhone: %s\nCompany: %s\nService Needed: %s\nBudget Range: %s\nProject Details: %s",
                 $data['firstname'] ?? '',
@@ -51,6 +52,6 @@ final readonly class ContactMiddleware implements MiddlewareInterface
         ));
 
         // Middleware logic goes here
-        return $handler->handle($request);
+        return $handler->handle($request->withAttribute(CommandResult::class, $result));
     }
 }

@@ -12,7 +12,7 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace App\Middleware;
+namespace App\Contact;
 
 use Axleus\Mailer\MailerInterface;
 use Axleus\Mailer\Adapter\MessageInterface;

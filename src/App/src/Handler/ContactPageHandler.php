@@ -19,6 +19,8 @@ use Mezzio\Template\TemplateRendererInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
+use Webware\CommandBus\Command\CommandResult;
+use Webware\CommandBus\Command\CommandStatus;
 
 final class ContactPageHandler implements RequestHandlerInterface
 {
@@ -32,10 +34,13 @@ final class ContactPageHandler implements RequestHandlerInterface
             'title'         => 'Contact Us',
             'hero-subtitle' => 'From concept to deployment, we deliver comprehensive solutions that drive results',
         ];
-        if (null === $this->template) {
-            return new Response\JsonResponse($data);
+        $commandResult = $request->getAttribute(CommandResult::class);
+        if ($commandResult === null) {
+            return new Response\HtmlResponse($this->template->render('app::contact-page', $data));
         }
-
-        return new Response\HtmlResponse($this->template->render('app::contact-page', $data));
+        return match ($commandResult->getStatus()) {
+            CommandStatus::Success => new Response\HtmlResponse($this->template->render('app::contact-page', $data)),
+            default => new Response\HtmlResponse($this->template->render('error::error', $data)),
+        };
     }
 }

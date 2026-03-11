@@ -62,12 +62,12 @@ class ConfigProvider
                 FilterServerRequestInterface::class => Request\HtmxFilter::class,
             ],
             'factories'  => [
+                Contact\ContactMiddleware::class    => Contact\ContactMiddlewareFactory::class,
                 Handler\AboutPageHandler::class     => Container\AboutPageHandlerFactory::class,
                 Handler\ContactPageHandler::class   => Container\ContactPageHandlerFactory::class,
                 Handler\HomePageHandler::class      => Container\HomePageHandlerFactory::class,
                 Handler\ProjectPageHandler::class   => Container\ProjectPageHandlerFactory::class,
                 Handler\ServicePageHandler::class   => Container\ServicePageHandlerFactory::class,
-                Middleware\ContactMiddleware::class => Middleware\ContactMiddlewareFactory::class,
                 Middleware\HtmxMiddleware::class    => Middleware\HtmxMiddlewareFactory::class,
                 RouteProvider::class                => Container\RouteProviderFactory::class,
             ],
