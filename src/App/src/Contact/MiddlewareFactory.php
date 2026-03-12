@@ -19,13 +19,13 @@ use Axleus\Mailer\Adapter\MessageInterface;
 use Psr\Container\ContainerInterface;
 use Webware\CommandBus\CommandBusInterface;
 
-final readonly class ContactMiddlewareFactory
+final readonly class MiddlewareFactory
 {
-    public function __invoke(ContainerInterface $container): ContactMiddleware
+    public function __invoke(ContainerInterface $container): Middleware
     {
         $commandBus = $container->get(CommandBusInterface::class);
 
-        return new ContactMiddleware(
+        return new Middleware(
             $commandBus,
             $container->get('config')[MessageInterface::class] ?? []
         );

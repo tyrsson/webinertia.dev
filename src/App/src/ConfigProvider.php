@@ -15,6 +15,8 @@ declare(strict_types=1);
 namespace App;
 
 use Laminas\Diactoros\ServerRequestFilter\FilterServerRequestInterface;
+use Mezzio\LaminasView\LaminasViewRendererFactory;
+use Mezzio\Template\TemplateRendererInterface;
 
 /**
  * @phpstan-type dependencyArray array{
@@ -60,14 +62,16 @@ class ConfigProvider
         return [
             'aliases'    => [
                 FilterServerRequestInterface::class => Request\HtmxFilter::class,
+                TemplateRendererInterface::class    => Htmx\LaminasViewRenderer::class,
             ],
             'factories'  => [
-                Contact\ContactMiddleware::class    => Contact\ContactMiddlewareFactory::class,
+                Contact\PageHandler::class          => Contact\PageHandlerFactory::class,
+                Contact\Middleware::class           => Contact\MiddlewareFactory::class,
                 Handler\AboutPageHandler::class     => Container\AboutPageHandlerFactory::class,
-                Handler\ContactPageHandler::class   => Container\ContactPageHandlerFactory::class,
                 Handler\HomePageHandler::class      => Container\HomePageHandlerFactory::class,
                 Handler\ProjectPageHandler::class   => Container\ProjectPageHandlerFactory::class,
                 Handler\ServicePageHandler::class   => Container\ServicePageHandlerFactory::class,
+                Htmx\LaminasViewRenderer::class     => Htmx\LaminasViewRendererFactory::class,
                 Middleware\HtmxMiddleware::class    => Middleware\HtmxMiddlewareFactory::class,
                 RouteProvider::class                => Container\RouteProviderFactory::class,
             ],
@@ -102,6 +106,7 @@ class ConfigProvider
         return [
             'map'            => [
                 'layout::default' => __DIR__ . '/../templates/layout/default.phtml',
+                'body::default'    => __DIR__ . '/../templates/body/default.phtml',
                 'app::home-page'  => __DIR__ . '/../templates/app/home-page.phtml',
                 'error::404'      => __DIR__ . '/../templates/error/404.phtml',
                 'error::error'    => __DIR__ . '/../templates/error/error.phtml',
@@ -111,6 +116,7 @@ class ConfigProvider
                 'error' => [__DIR__ . '/../templates/error'],
             ],
             'default_layout' => 'layout::default',
+            'default_body'   => 'body::default',
         ];
     }
 }
