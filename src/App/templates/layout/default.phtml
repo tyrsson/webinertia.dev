@@ -51,91 +51,54 @@ $this->headScript()
         <?= $this->headScript() ?>
     </head>
     <body hx-boost="true" hx-push-url="true" hx-target="main">
-        <!-- Side Navigation -->
-        <nav class="side-nav" id="side-nav">
-            <div class="side-nav-logo">Webinertia</div>
-            <ul class="side-nav-items">
-                <li class="side-nav-item">
-                    <a href="<?= $this->url('home') ?>" data-label="Home">🏠</a>
-                </li>
-                <li class="side-nav-item">
-                    <a href="<?= $this->url('services') ?>" data-label="Services">⚡</a>
-                </li>
-                <li class="side-nav-item">
-                    <a href="<?= $this->url('about') ?>" data-label="About">💡</a>
-                </li>
-                <li class="side-nav-item">
-                    <a href="<?= $this->url('contact') ?>" data-label="Contact">📧</a>
-                </li>
-            </ul>
-        </nav>
+        <?= $this->body ?>
+    </body>
+    <?= $this->inlineScript() ?>
 
-        <!-- Mobile Hamburger Menu Toggle -->
-        <button class="mobile-menu-toggle" id="mobile-menu-toggle">☰</button>
+    <!-- Menu Script -->
+    <script>
+        // Set .active on the matching side-nav link; never touches mobile nav links
+        function setActiveNav() {
+            const currentPath = window.location.pathname;
+            document.querySelectorAll('#side-nav .side-nav-item a').forEach(function(link) {
+                link.classList.toggle('active', link.pathname === currentPath);
+            });
+        }
 
-        <!-- Mobile Navigation Menu -->
-        <nav class="mobile-nav-menu" id="mobile-nav-menu">
-            <a href="<?= $this->url('home') ?>">🏠 Home</a>
-            <a href="<?= $this->url('services') ?>">⚡ Services</a>
-            <a href="<?= $this->url('about') ?>">💡 About</a>
-            <a href="<?= $this->url('contact') ?>">📧 Contact</a>
-        </nav>
+        // Toggle mobile menu visibility
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleBtn = document.getElementById('mobile-menu-toggle');
+            const mobileMenu = document.getElementById('mobile-nav-menu');
+            const menuLinks = mobileMenu.querySelectorAll('a');
 
-        <main class="main-content">
-            <?= $this->content ?>
-        </main>
-        <footer>
-            <div class="footer-content">
-                <p>&copy; <?= date('Y') ?> <span class="footer-brand">Webinertia L.L.C.</span> <span class="accent-dot"></span> Shaping Digital Futures</p>
-            </div>
-        </footer>
-        <?= $this->inlineScript() ?>
-
-        <!-- Menu Script -->
-        <script>
-            // Set .active on the matching side-nav link; never touches mobile nav links
-            function setActiveNav() {
-                const currentPath = window.location.pathname;
-                document.querySelectorAll('#side-nav .side-nav-item a').forEach(function(link) {
-                    link.classList.toggle('active', link.pathname === currentPath);
-                });
-            }
-
-            // Toggle mobile menu visibility
-            document.addEventListener('DOMContentLoaded', function() {
-                const toggleBtn = document.getElementById('mobile-menu-toggle');
-                const mobileMenu = document.getElementById('mobile-nav-menu');
-                const menuLinks = mobileMenu.querySelectorAll('a');
-
-                // Toggle menu when hamburger is clicked
-                toggleBtn.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    mobileMenu.classList.toggle('active');
-                });
-
-                // Close menu when a link is clicked
-                menuLinks.forEach(link => {
-                    link.addEventListener('click', function() {
-                        mobileMenu.classList.remove('active');
-                    });
-                });
-
-                // Close menu when clicking outside
-                document.addEventListener('click', function(e) {
-                    if (!mobileMenu.contains(e.target) && !toggleBtn.contains(e.target)) {
-                        mobileMenu.classList.remove('active');
-                    }
-                });
-
-                // Set active nav on initial page load
-                setActiveNav();
+            // Toggle menu when hamburger is clicked
+            toggleBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                mobileMenu.classList.toggle('active');
             });
 
-            // Update active nav after HTMX swaps content (hx-push-url has already updated location)
-            document.addEventListener('htmx:afterSettle', setActiveNav);
+            // Close menu when a link is clicked
+            menuLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenu.classList.remove('active');
+                });
+            });
 
-            // Update active nav when HTMX restores a page from history (back/forward)
-            document.addEventListener('htmx:historyRestore', setActiveNav);
-        </script>
-    </body>
+            // Close menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!mobileMenu.contains(e.target) && !toggleBtn.contains(e.target)) {
+                    mobileMenu.classList.remove('active');
+                }
+            });
+
+            // Set active nav on initial page load
+            setActiveNav();
+        });
+
+        // Update active nav after HTMX swaps content (hx-push-url has already updated location)
+        document.addEventListener('htmx:afterSettle', setActiveNav);
+
+        // Update active nav when HTMX restores a page from history (back/forward)
+        document.addEventListener('htmx:historyRestore', setActiveNav);
+    </script>
 </html>

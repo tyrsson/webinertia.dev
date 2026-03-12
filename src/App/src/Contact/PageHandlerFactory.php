@@ -12,18 +12,17 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace App\Container;
+namespace App\Contact;
 
-use App\Handler\ContactPageHandler;
 use Mezzio\Template\TemplateRendererInterface;
 use Psr\Container\ContainerInterface;
 
-final class ContactPageHandlerFactory
+final class PageHandlerFactory
 {
-    public function __invoke(ContainerInterface $container): ContactPageHandler
+    public function __invoke(ContainerInterface $container): PageHandler
     {
         $template = $container->get(TemplateRendererInterface::class);
 
-        return new ContactPageHandler($template);
+        return new PageHandler($template);
     }
 }

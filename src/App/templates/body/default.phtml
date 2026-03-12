@@ -1,0 +1,38 @@
+<!-- Side Navigation -->
+<nav class="side-nav" id="side-nav">
+    <div class="side-nav-logo">Webinertia</div>
+    <ul class="side-nav-items">
+        <li class="side-nav-item">
+            <a href="<?= $this->url('home') ?>" data-label="Home">🏠</a>
+        </li>
+        <li class="side-nav-item">
+            <a href="<?= $this->url('services') ?>" data-label="Services">⚡</a>
+        </li>
+        <li class="side-nav-item">
+            <a href="<?= $this->url('about') ?>" data-label="About">💡</a>
+        </li>
+        <li class="side-nav-item">
+            <a href="<?= $this->url('contact') ?>" data-label="Contact">📧</a>
+        </li>
+    </ul>
+</nav>
+
+<!-- Mobile Hamburger Menu Toggle -->
+<button class="mobile-menu-toggle" id="mobile-menu-toggle">☰</button>
+
+<!-- Mobile Navigation Menu -->
+<nav class="mobile-nav-menu" id="mobile-nav-menu">
+    <a href="<?= $this->url('home') ?>">🏠 Home</a>
+    <a href="<?= $this->url('services') ?>">⚡ Services</a>
+    <a href="<?= $this->url('about') ?>">💡 About</a>
+    <a href="<?= $this->url('contact') ?>">📧 Contact</a>
+</nav>
+
+<main class="main-content">
+    <?= $this->content ?>
+</main>
+<footer>
+    <div class="footer-content">
+        <p>&copy; <?= date('Y') ?> <span class="footer-brand">Webinertia L.L.C.</span> <span class="accent-dot"></span> Shaping Digital Futures</p>
+    </div>
+</footer>

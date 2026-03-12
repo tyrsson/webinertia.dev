@@ -23,7 +23,7 @@ use Psr\Http\Server\RequestHandlerInterface;
 use Webware\CommandBus\CommandBusInterface;
 use Webware\CommandBus\Command\CommandResult;
 
-final readonly class ContactMiddleware implements MiddlewareInterface
+final readonly class Middleware implements MiddlewareInterface
 {
     public function __construct(
         private CommandBusInterface $commandBus,

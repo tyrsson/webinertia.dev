@@ -12,8 +12,9 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace App\Handler;
+namespace App\Contact;
 
+use Axleus\Message\SystemMessengerInterface;
 use Laminas\Diactoros\Response;
 use Mezzio\Template\TemplateRendererInterface;
 use Psr\Http\Message\ResponseInterface;
@@ -22,7 +23,7 @@ use Psr\Http\Server\RequestHandlerInterface;
 use Webware\CommandBus\Command\CommandResult;
 use Webware\CommandBus\Command\CommandStatus;
 
-final class ContactPageHandler implements RequestHandlerInterface
+final class PageHandler implements RequestHandlerInterface
 {
     public function __construct(
         private readonly ?TemplateRendererInterface $template = null,
@@ -35,6 +36,8 @@ final class ContactPageHandler implements RequestHandlerInterface
             'hero-subtitle' => 'From concept to deployment, we deliver comprehensive solutions that drive results',
         ];
         $commandResult = $request->getAttribute(CommandResult::class);
+        $messsenger    = $request->getAttribute(SystemMessengerInterface::class);
+        
         if ($commandResult === null) {
             return new Response\HtmlResponse($this->template->render('app::contact-page', $data));
         }
