@@ -12,15 +12,15 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace App\Htmx;
+namespace Htmx\Response;
 
-use App\Htmx\ResponseHeaders as Header;
-
+use Htmx\Response\Header;
+use Htmx\TriggerTrait;
 use function json_encode;
 
-trait HtmxResponseTrait
+trait ResponseTrait
 {
-    use HtmxTriggerTrait;
+    use TriggerTrait;
 
     private array $allowedKeys = [
         '',
@@ -29,10 +29,10 @@ trait HtmxResponseTrait
     public function htmxLocation(string $path, ?string $target = null): void
     {
         if ($target !== null) {
-            $this->headers[Header::HX_Location->value] = json_encode(['path' => $path, 'target' => $target]);
+            $this->headers[Header::Location->value] = json_encode(['path' => $path, 'target' => $target]);
 
             return;
         }
-        $this->headers[Header::HX_Location->value] = $path;
+        $this->headers[Header::Location->value] = $path;
     }
 }

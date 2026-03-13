@@ -12,21 +12,21 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace App\Htmx;
+namespace Htmx;
 
-use App\Htmx\ResponseHeaders as HtmxHeader;
+use Htmx\Response\Header;
 
 use function json_encode;
 
-trait HtmxHandlerTrait
+trait RequestHandlerTrait
 {
-    private string $domTarget = '#app-main';
+    private string $domTarget = 'main';
 
     private function hxLocation(array $params): array
     {
         $data = ['target' => $this->domTarget];
         $data = $params + $data;
 
-        return [HtmxHeader::HX_Location->value => json_encode($data)];
+        return [Header::Location->value => json_encode($data)];
     }
 }

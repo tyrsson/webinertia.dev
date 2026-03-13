@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use App\Middleware\HtmxMiddleware;
+use Htmx\Middleware\DetectAjaxRequestMiddleware;
 use Laminas\Stratigility\Middleware\ErrorHandler;
 use Mezzio\Application;
 use Mezzio\Handler\NotFoundHandler;
@@ -69,7 +69,7 @@ return function (Application $app, MiddlewareFactory $factory, ContainerInterfac
     // - route-based authentication
     // - route-based validation
     // - etc.
-    $app->pipe(HtmxMiddleware::class);
+    $app->pipe(DetectAjaxRequestMiddleware::class);
 
     // Register the dispatch middleware in the middleware pipeline
     $app->pipe(DispatchMiddleware::class);

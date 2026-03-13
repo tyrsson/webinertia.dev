@@ -12,16 +12,16 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace App\Middleware;
+namespace Htmx\Middleware;
 
-use App\Htmx\RequestHeaders as Htmx;
+use Htmx\Request\Header;
 use Mezzio\Template\TemplateRendererInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 
-class HtmxMiddleware implements MiddlewareInterface
+class DetectAjaxRequestMiddleware implements MiddlewareInterface
 {
     public function __construct(
         private TemplateRendererInterface $template,
@@ -30,7 +30,7 @@ class HtmxMiddleware implements MiddlewareInterface
 
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
-        if ($request->getAttribute(Htmx::HX_Request->value, false)) {
+        if ($request->getAttribute(Header::Request->value, false)) {
             $this->template->addDefaultParam(
                 TemplateRendererInterface::TEMPLATE_ALL,
                 'layout',

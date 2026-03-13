@@ -12,18 +12,19 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace App\Middleware;
+namespace Htmx\Middleware;
 
 use Mezzio\Template\TemplateRendererInterface;
 use Psr\Container\ContainerInterface;
+use Psr\Http\Server\MiddlewareInterface;
 
-class HtmxMiddlewareFactory
+class DetectAjaxRequestMiddlewareFactory
 {
-    public function __invoke(ContainerInterface $container): HtmxMiddleware
+    public function __invoke(ContainerInterface $container): MiddlewareInterface
     {
         $config = $container->get('config');
 
-        return new HtmxMiddleware(
+        return new DetectAjaxRequestMiddleware(
             $container->get(TemplateRendererInterface::class),
             $config
         );
