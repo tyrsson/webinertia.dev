@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Htmx;
+namespace Htmx\View;
 
 use Laminas\View\HelperPluginManagerInterface;
 use Laminas\View\Renderer\RendererInterface;
@@ -29,9 +29,9 @@ use function reset;
  * @psalm-internal Mezzio\LaminasView
  * @psalm-internal MezzioTest\LaminasView
  */
-final class LaminasViewRendererFactory
+final class LaminasRendererFactory
 {
-    public function __invoke(ContainerInterface $container): LaminasViewRenderer
+    public function __invoke(ContainerInterface $container): LaminasRenderer
     {
         /** @psalm-var mixed $config */
         $config = $container->has('config') ? $container->get('config') : [];
@@ -62,7 +62,7 @@ final class LaminasViewRendererFactory
         $body = $body !== false ? $body : null;
         assert(is_string($body) || $body === null);
 
-        return new LaminasViewRenderer(
+        return new LaminasRenderer(
             $container->get(RendererInterface::class),
             $container->get(HelperPluginManagerInterface::class),
             $layout,

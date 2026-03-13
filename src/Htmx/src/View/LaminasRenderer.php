@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Htmx;
+namespace Htmx\View;
 
 use Laminas\View\Exception\RenderingFailedException;
 use Laminas\View\HelperPluginManagerInterface;
@@ -29,7 +29,7 @@ use function sprintf;
  * registers a NamespacedPathStackResolver at priority 0 (lower than
  * default) in the Aggregate to ensure we can add and resolve namespaced paths.
  */
-final class LaminasViewRenderer implements TemplateRendererInterface
+final class LaminasRenderer implements TemplateRendererInterface
 {
     use ArrayParametersTrait;
     use DefaultParamsTrait;

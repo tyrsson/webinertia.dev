@@ -12,14 +12,14 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace App\Request;
+namespace Htmx\Request;
 
-use App\Htmx\RequestHeaders as Htmx;
+use Htmx\Request\Header;
 use Laminas\Diactoros\ServerRequestFilter\FilterServerRequestInterface;
 use Laminas\Diactoros\ServerRequestFilter\FilterUsingXForwardedHeaders;
 use Psr\Http\Message\ServerRequestInterface;
 
-final class HtmxFilter implements FilterServerRequestInterface
+final class ServerRequestFilter implements FilterServerRequestInterface
 {
     public function __invoke(ServerRequestInterface $request): ServerRequestInterface
     {
@@ -27,7 +27,7 @@ final class HtmxFilter implements FilterServerRequestInterface
         $request = FilterUsingXForwardedHeaders::trustReservedSubnets()($request);
 
         $headers     = $request->getHeaders();
-        $htmxHeaders = array_flip(Htmx::toArray(
+        $htmxHeaders = array_flip(Header::toArray(
             normalize: true,
             valueTreatment: 'strtolower',
         ));

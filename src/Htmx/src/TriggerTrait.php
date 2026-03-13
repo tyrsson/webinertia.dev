@@ -12,13 +12,13 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace App\Htmx;
+namespace Htmx;
 
-use App\Htmx\ResponseHeaders as Htmx;
+use Htmx\Response\Header;
 
 use function json_encode;
 
-trait HtmxTriggerTrait
+trait TriggerTrait
 {
     final public const SYSTEM_MESSAGE = 'systemMessage';
 
@@ -26,6 +26,6 @@ trait HtmxTriggerTrait
         array $data,
         ?string $event = self::SYSTEM_MESSAGE,
     ): void {
-        $this->headers[Htmx::HX_Trigger->value] = json_encode([$event => $data]);
+        $this->headers[Header::Trigger->value] = json_encode([$event => $data]);
     }
 }

@@ -50,7 +50,7 @@ $this->headScript()
         <?= $this->headLink() ?>
         <?= $this->headScript() ?>
     </head>
-    <body hx-boost="true" hx-push-url="true" hx-target="main">
+    <body hx-boost="true" hx-push-url="true">
         <?= $this->body ?>
     </body>
     <?= $this->inlineScript() ?>
@@ -100,5 +100,25 @@ $this->headScript()
 
         // Update active nav when HTMX restores a page from history (back/forward)
         document.addEventListener('htmx:historyRestore', setActiveNav);
+
+        (function () {
+            let tracyEl = null;
+
+            document.addEventListener('htmx:beforeSwap', function () {
+                tracyEl = document.getElementById('tracy-debug');
+                if (tracyEl) {
+                    tracyEl.remove(); // detach before HTMX replaces body innerHTML
+                }
+            });
+
+            // Use htmx:afterSwap (not afterSettle) to re-attach as early as possible,
+            // before Tracy's async _tracy_bar script can fire and call loadAjax().
+            document.addEventListener('htmx:afterSwap', function () {
+                if (tracyEl) {
+                    document.body.appendChild(tracyEl);
+                    tracyEl = null;
+                }
+            });
+        })();
     </script>
 </html>
