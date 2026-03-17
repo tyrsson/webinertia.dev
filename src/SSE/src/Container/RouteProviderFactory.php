@@ -12,12 +12,15 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace App\Contact;
+namespace Webware\SSE\Container;
 
-use Axleus\Message;
+use Psr\Container\ContainerInterface;
+use Webware\SSE\RouteProvider;
 
-final class Notification extends Message\AbstractMessage implements Message\MessageIconCapableInterface, Message\MessageLevelCapableInterface
+final readonly class RouteProviderFactory
 {
-    use Message\MessageIconCapableTrait;
-    use Message\MessageLevelCapableTrait;
+    public function __invoke(ContainerInterface $container): RouteProvider
+    {
+        return new RouteProvider();
+    }
 }

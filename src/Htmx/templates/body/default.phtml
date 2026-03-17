@@ -1,3 +1,9 @@
+<?php
+
+declare(strict_types=1);
+
+use Axleus\Message\MessageLevel;
+?>
 <!-- Side Navigation -->
 <nav class="side-nav" id="side-nav">
     <div class="side-nav-logo">Webinertia</div>
@@ -29,6 +35,7 @@
 </nav>
 
 <main class="main-content">
+    <div hx-ext="sse" sse-close="sse-close" sse-connect="<?= $this->url('sse-stream') ?>" sse-swap="<?= implode(',', array_map(fn($level) => $level->value, MessageLevel::cases())) ?>"></div>
     <?= $this->content ?>
 </main>
 <footer>

@@ -14,7 +14,6 @@ declare(strict_types=1);
 
 namespace Htmx\Request;
 
-use Htmx\Request\Header;
 use Laminas\Diactoros\ServerRequestFilter\FilterServerRequestInterface;
 use Laminas\Diactoros\ServerRequestFilter\FilterUsingXForwardedHeaders;
 use Psr\Http\Message\ServerRequestInterface;

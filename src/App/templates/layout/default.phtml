@@ -27,10 +27,18 @@ $this->headLink()
 // head script files and script
 $this->headScript()
     ->appendFile(
-        'https://unpkg.com/htmx.org@2.0.1/dist/htmx.js',
+        'https://cdn.jsdelivr.net/npm/htmx.org@2.0.8/dist/htmx.min.js',
         [
             'type' => 'text/javascript',
-            'integrity' => 'sha384-gpIh5aLQ0qmX8kZdyhsd6jA24uKLkqIr1WAGtantR4KsS97l/NRBvh8/8OYGThAf',
+            'integrity' => 'sha384-/TgkGk7p307TH7EXJDuUlgG3Ce1UVolAOFopFekQkkXihi5u/6OCvVKyz1W+idaz',
+            'crossorigin' => 'anonymous',
+        ],
+    )
+    ->appendFile(
+        'https://cdn.jsdelivr.net/npm/htmx-ext-sse@2.2.4',
+        [
+            'type' => 'text/javascript',
+            'integrity' => 'sha384-A986SAtodyH8eg8x8irJnYUk7i9inVQqYigD6qZ9evobksGNIXfeFvDwLSHcp31N',
             'crossorigin' => 'anonymous',
         ],
     );
@@ -50,7 +58,7 @@ $this->headScript()
         <?= $this->headLink() ?>
         <?= $this->headScript() ?>
     </head>
-    <body hx-boost="true" hx-push-url="true">
+    <body hx-boost="true" hx-push-url="true" hx-ext="sse">
         <?= $this->body ?>
     </body>
     <?= $this->inlineScript() ?>
@@ -65,41 +73,59 @@ $this->headScript()
             });
         }
 
-        // Toggle mobile menu visibility
-        document.addEventListener('DOMContentLoaded', function() {
+        // Re-bind mobile menu toggle after every swap; HTMX replaces DOM nodes so old
+        // listeners are lost. getElementById is called fresh each time (no stale refs).
+        function initMobileMenu() {
             const toggleBtn = document.getElementById('mobile-menu-toggle');
             const mobileMenu = document.getElementById('mobile-nav-menu');
-            const menuLinks = mobileMenu.querySelectorAll('a');
+            if (!toggleBtn || !mobileMenu) {
+                return;
+            }
+
+            // Clone the nodes to strip any previously attached listeners before re-binding.
+            const freshToggle = toggleBtn.cloneNode(true);
+            const freshMenu   = mobileMenu.cloneNode(true);
+            toggleBtn.replaceWith(freshToggle);
+            mobileMenu.replaceWith(freshMenu);
 
             // Toggle menu when hamburger is clicked
-            toggleBtn.addEventListener('click', function(e) {
+            freshToggle.addEventListener('click', function(e) {
                 e.stopPropagation();
-                mobileMenu.classList.toggle('active');
+                freshMenu.classList.toggle('active');
             });
 
-            // Close menu when a link is clicked
-            menuLinks.forEach(link => {
+            // Close menu when a nav link is clicked
+            freshMenu.querySelectorAll('a').forEach(function(link) {
                 link.addEventListener('click', function() {
-                    mobileMenu.classList.remove('active');
+                    freshMenu.classList.remove('active');
                 });
             });
+        }
 
-            // Close menu when clicking outside
-            document.addEventListener('click', function(e) {
-                if (!mobileMenu.contains(e.target) && !toggleBtn.contains(e.target)) {
-                    mobileMenu.classList.remove('active');
-                }
-            });
-
-            // Set active nav on initial page load
-            setActiveNav();
+        // Close mobile menu when clicking anywhere outside it (looks up nodes fresh on each click).
+        document.addEventListener('click', function(e) {
+            const mobileMenu = document.getElementById('mobile-nav-menu');
+            const toggleBtn  = document.getElementById('mobile-menu-toggle');
+            if (mobileMenu && toggleBtn
+                && !mobileMenu.contains(e.target)
+                && !toggleBtn.contains(e.target)
+            ) {
+                mobileMenu.classList.remove('active');
+            }
         });
 
-        // Update active nav after HTMX swaps content (hx-push-url has already updated location)
-        document.addEventListener('htmx:afterSettle', setActiveNav);
+        function initPage() {
+            setActiveNav();
+            initMobileMenu();
+        }
 
-        // Update active nav when HTMX restores a page from history (back/forward)
-        document.addEventListener('htmx:historyRestore', setActiveNav);
+        document.addEventListener('DOMContentLoaded', initPage);
+
+        // Re-init after every HTMX content swap (boosted navigation).
+        document.addEventListener('htmx:afterSettle', initPage);
+
+        // Re-init when HTMX restores a page from the history cache (back/forward).
+        document.addEventListener('htmx:historyRestore', initPage);
 
         (function () {
             let tracyEl = null;

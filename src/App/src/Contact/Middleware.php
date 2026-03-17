@@ -20,8 +20,8 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
-use Webware\CommandBus\CommandBusInterface;
 use Webware\CommandBus\Command\CommandResult;
+use Webware\CommandBus\CommandBusInterface;
 
 final readonly class Middleware implements MiddlewareInterface
 {
@@ -34,8 +34,8 @@ final readonly class Middleware implements MiddlewareInterface
     {
         $data   = $request->getParsedBody();
         $result = $this->commandBus->handle(new SendEmailCommand(
-            to: $this->config['to'] ?? 'contact@webinertia.dev',
-            from: $this->config['from'] ?? 'no-reply@example.com',
+            to: $this->config['to']           ?? 'contact@webinertia.dev',
+            from: $this->config['from']       ?? 'no-reply@example.com',
             subject: $this->config['subject'] ?? 'Webinertia Contact Form Submission',
             body: sprintf(
                 "Name: %s %s\nEmail: %s\nPhone: %s\nCompany: %s\nService Needed: %s\nBudget Range: %s\nProject Details: %s",

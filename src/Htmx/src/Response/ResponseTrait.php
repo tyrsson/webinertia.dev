@@ -14,8 +14,8 @@ declare(strict_types=1);
 
 namespace Htmx\Response;
 
-use Htmx\Response\Header;
 use Htmx\TriggerTrait;
+
 use function json_encode;
 
 trait ResponseTrait
