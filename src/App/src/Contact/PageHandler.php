@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace App\Contact;
 
+use Axleus\Message\MessageLevel;
 use Axleus\Message\SystemMessengerInterface;
 use Laminas\Diactoros\Response;
 use Mezzio\Template\TemplateRendererInterface;
@@ -32,18 +33,27 @@ final class PageHandler implements RequestHandlerInterface
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
         $data = [
-            'title'         => 'Contact Us',
-            'hero-subtitle' => 'From concept to deployment, we deliver comprehensive solutions that drive results',
+            'title' => 'Contact Us',
         ];
         $commandResult = $request->getAttribute(CommandResult::class);
-        $messsenger    = $request->getAttribute(SystemMessengerInterface::class);
-        
+        $messenger     = $request->getAttribute(SystemMessengerInterface::class);
+
         if ($commandResult === null) {
             return new Response\HtmlResponse($this->template->render('app::contact-page', $data));
         }
-        return match ($commandResult->getStatus()) {
-            CommandStatus::Success => new Response\HtmlResponse($this->template->render('app::contact-page', $data)),
-            default => new Response\HtmlResponse($this->template->render('error::error', $data)),
-        };
+
+        if ($commandResult->getStatus() === CommandStatus::Success) {
+            $messenger?->sendNow(
+                'Your message has been sent. We will be in touch shortly.',
+                MessageLevel::Success,
+            );
+        }
+
+        $messenger?->sendNow(
+            'There was a problem sending your message. Please try again.',
+            MessageLevel::Danger,
+        );
+
+         return new Response\HtmlResponse($this->template->render('app::contact-page', $data));
     }
 }

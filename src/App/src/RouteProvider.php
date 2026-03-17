@@ -54,7 +54,7 @@ final class RouteProvider implements RouteProviderInterface
                     SessionMiddleware::class,
                     MessageMiddleware::class,
                     Contact\Middleware::class,
-                    Contact\PageHandler::class
+                    Contact\PageHandler::class,
                 ]
             ),
             'process.contact'
@@ -73,7 +73,6 @@ final class RouteProvider implements RouteProviderInterface
             ),
             'services'
         );
-
         $routeCollector->get(
             '/ping',
             $middlewareFactory->prepare(

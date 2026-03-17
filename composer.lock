@@ -85,12 +85,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/axleus/axleus-message.git",
-                "reference": "102878825cb1db8748081d3b8f4e621c0224703e"
+                "reference": "6631256d7542578e1d864452fc01d6888bd3b01d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/axleus/axleus-message/zipball/102878825cb1db8748081d3b8f4e621c0224703e",
-                "reference": "102878825cb1db8748081d3b8f4e621c0224703e",
+                "url": "https://api.github.com/repos/axleus/axleus-message/zipball/6631256d7542578e1d864452fc01d6888bd3b01d",
+                "reference": "6631256d7542578e1d864452fc01d6888bd3b01d",
                 "shasum": ""
             },
             "require": {
@@ -151,7 +151,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-03-12T00:21:19+00:00"
+            "time": "2026-03-16T20:13:02+00:00"
         },
         {
             "name": "beberlei/assert",
@@ -3358,11 +3358,11 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "2.1.40",
+            "version": "2.1.41",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/9b2c7aeb83a75d8680ea5e7c9b7fca88052b766b",
-                "reference": "9b2c7aeb83a75d8680ea5e7c9b7fca88052b766b",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/a2eae8f20856b3afe74bf1f9726ce8c11438e300",
+                "reference": "a2eae8f20856b3afe74bf1f9726ce8c11438e300",
                 "shasum": ""
             },
             "require": {
@@ -3407,7 +3407,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-02-23T15:04:35+00:00"
+            "time": "2026-03-16T18:24:10+00:00"
         },
         {
             "name": "phpstan/phpstan-phpunit",
@@ -4504,12 +4504,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                "reference": "ed005b7ebb25c82bb29af88d634357073f3b7a33"
+                "reference": "2c508a375d67316702039d5c8f02acdafe0320c8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/ed005b7ebb25c82bb29af88d634357073f3b7a33",
-                "reference": "ed005b7ebb25c82bb29af88d634357073f3b7a33",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/2c508a375d67316702039d5c8f02acdafe0320c8",
+                "reference": "2c508a375d67316702039d5c8f02acdafe0320c8",
                 "shasum": ""
             },
             "conflict": {
@@ -4652,10 +4652,14 @@
                 "cosenary/instagram": "<=2.3",
                 "couleurcitron/tarteaucitron-wp": "<0.3",
                 "cpsit/typo3-mailqueue": "<0.4.3|>=0.5,<0.5.1",
-                "craftcms/cms": "<=4.17.3|>=5,<=5.9.8",
+                "craftcms/aws-s3": ">=2.0.2,<=2.2.4",
+                "craftcms/azure-blob": ">=2.0.0.0-beta1,<=2.1",
+                "craftcms/cms": "<=4.17.5|>=5,<=5.9.11",
                 "craftcms/commerce": ">=4,<4.11|>=5,<5.6",
                 "craftcms/composer": ">=4.0.0.0-RC1-dev,<=4.10|>=5.0.0.0-RC1-dev,<=5.5.1",
                 "craftcms/craft": ">=3.5,<=4.16.17|>=5.0.0.0-RC1-dev,<=5.8.21",
+                "craftcms/google-cloud": ">=2.0.0.0-beta1,<=2.2",
+                "craftcms/webhooks": ">=3,<3.2",
                 "croogo/croogo": "<=4.0.7",
                 "cuyz/valinor": "<0.12",
                 "czim/file-handling": "<1.5|>=2,<2.3",
@@ -5174,7 +5178,7 @@
                 "reportico-web/reportico": "<=8.1",
                 "rhukster/dom-sanitizer": "<1.0.7",
                 "rmccue/requests": ">=1.6,<1.8",
-                "robrichards/xmlseclibs": "<=3.1.3",
+                "robrichards/xmlseclibs": "<3.1.5",
                 "roots/soil": "<4.1",
                 "roundcube/roundcubemail": "<1.5.10|>=1.6,<1.6.11",
                 "rudloff/alltube": "<3.0.3",
@@ -5225,7 +5229,7 @@
                 "simplesamlphp/simplesamlphp-module-openid": "<1",
                 "simplesamlphp/simplesamlphp-module-openidprovider": "<0.9",
                 "simplesamlphp/xml-common": "<1.20",
-                "simplesamlphp/xml-security": "==1.6.11",
+                "simplesamlphp/xml-security": "<1.13.9|>=2,<2.3.1",
                 "simplito/elliptic-php": "<1.0.6",
                 "sitegeist/fluid-components": "<3.5",
                 "sjbr/sr-feuser-register": "<2.6.2|>=5.1,<12.5",
@@ -5253,7 +5257,7 @@
                 "starcitizentools/short-description": ">=4,<4.0.1",
                 "starcitizentools/tabber-neue": ">=1.9.1,<2.7.2|>=3,<3.1.1",
                 "starcitizenwiki/embedvideo": "<=4",
-                "statamic/cms": "<5.73.11|>=6,<6.4",
+                "statamic/cms": "<5.73.11|>=6,<6.6.2",
                 "stormpath/sdk": "<9.9.99",
                 "studio-42/elfinder": "<=2.1.64",
                 "studiomitte/friendlycaptcha": "<0.1.4",
@@ -5525,7 +5529,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-03-12T14:21:15+00:00"
+            "time": "2026-03-16T19:25:42+00:00"
         },
         {
             "name": "sebastian/cli-parser",

@@ -14,7 +14,6 @@ declare(strict_types=1);
 
 namespace App\Contact;
 
-use Axleus\Mailer\MailerInterface;
 use Axleus\Mailer\Adapter\MessageInterface;
 use Psr\Container\ContainerInterface;
 use Webware\CommandBus\CommandBusInterface;

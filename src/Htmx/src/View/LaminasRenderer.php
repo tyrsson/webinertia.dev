@@ -2,6 +2,16 @@
 
 declare(strict_types=1);
 
+/**
+ * This file is part of the Tyrsson Webinertia package.
+ *
+ * Copyright (c) 2026 Joey Smith <jsmith@webinertia.net>
+ * and contributors.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Htmx\View;
 
 use Laminas\View\Exception\RenderingFailedException;
@@ -34,9 +44,9 @@ final class LaminasRenderer implements TemplateRendererInterface
     use ArrayParametersTrait;
     use DefaultParamsTrait;
 
-    private ModelInterface|null $layout;
+    private ?ModelInterface $layout;
 
-    private ModelInterface|null $body;
+    private ?ModelInterface $body;
 
     /**
      * @throws InvalidArgumentException When $layout is an empty string.
@@ -48,17 +58,11 @@ final class LaminasRenderer implements TemplateRendererInterface
         string|ModelInterface|null $body,
     ) {
         if ($layout === '') {
-            throw new InvalidArgumentException(sprintf(
-                'Layout must be a non-empty-string or a %s instance.',
-                ModelInterface::class,
-            ));
+            throw new InvalidArgumentException(sprintf('Layout must be a non-empty-string or a %s instance.', ModelInterface::class, ));
         }
 
         if ($body === '') {
-            throw new InvalidArgumentException(sprintf(
-                'Body must be a non-empty-string or a %s instance.',
-                ModelInterface::class,
-            ));
+            throw new InvalidArgumentException(sprintf('Body must be a non-empty-string or a %s instance.', ModelInterface::class, ));
         }
 
         if (is_string($layout)) {
@@ -73,21 +77,8 @@ final class LaminasRenderer implements TemplateRendererInterface
             $body = $model;
         }
 
-        $this->body = $body;
+        $this->body   = $body;
         $this->layout = $layout;
-    }
-
-    /**
-     * Before rendering a model, merge in any default view variables
-     */
-    private function beforeRender(ModelInterface $model): ModelInterface
-    {
-        $template = $model->getTemplate();
-        if ($template === '') {
-            throw RenderingFailedException::becauseATemplateWasNotSpecified();
-        }
-
-        return $this->mergeViewModel($template, $model);
     }
 
     /**
@@ -118,9 +109,9 @@ final class LaminasRenderer implements TemplateRendererInterface
 
         $this->body->addChild(child: $viewModel, captureTo: 'content');
 
-        $body    = $this->renderRecursively($this->body) ?? '';
+        $body = $this->renderRecursively($this->body) ?? '';
 
-        $layout  = $this->prepareLayout($this->body);
+        $layout = $this->prepareLayout($this->body);
 
         if ($layout !== false) {
             $layout = $this->beforeRender($layout);
@@ -131,6 +122,19 @@ final class LaminasRenderer implements TemplateRendererInterface
         $this->helpers->resetState();
 
         return $body;
+    }
+
+    /**
+     * Before rendering a model, merge in any default view variables
+     */
+    private function beforeRender(ModelInterface $model): ModelInterface
+    {
+        $template = $model->getTemplate();
+        if ($template === '') {
+            throw RenderingFailedException::becauseATemplateWasNotSpecified();
+        }
+
+        return $this->mergeViewModel($template, $model);
     }
 
     /**
@@ -173,9 +177,7 @@ final class LaminasRenderer implements TemplateRendererInterface
         /** @psalm-var mixed $providedLayout */
         $providedLayout = $viewModel->getVariable('layout', null);
 
-        /**
-         * When the layout is explicitly given as false in the top-level view model, then layout will be disabled.
-         */
+        // When the layout is explicitly given as false in the top-level view model, then layout will be disabled.
         if ($providedLayout === false) {
             return false;
         }
@@ -188,7 +190,6 @@ final class LaminasRenderer implements TemplateRendererInterface
          * - The default layout defined in $this->layout
          * - no layout
          */
-
         $helperLayout = $this->helpers->get(LayoutHelper::class)->__invoke();
         if ($helperLayout->getTemplate() !== '') {
             return $helperLayout;
