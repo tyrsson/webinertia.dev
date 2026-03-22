@@ -33,9 +33,7 @@ use Axleus\Message\MessageLevel;
     <a href="<?= $this->url('about') ?>">💡 About</a>
     <a href="<?= $this->url('contact') ?>">📧 Contact</a>
 </nav>
-
 <main class="main-content">
-    <div hx-ext="sse" sse-close="sse-close" sse-connect="<?= $this->url('sse-stream') ?>" sse-swap="<?= implode(',', array_map(fn($level) => $level->value, MessageLevel::cases())) ?>"></div>
     <?= $this->content ?>
 </main>
 <footer>

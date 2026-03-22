@@ -1,0 +1,59 @@
+<?php
+
+declare(strict_types=1);
+
+/**
+ * Notification dialog partial.
+ *
+ * Variables expected:
+ *   $notification array{message: string, level: string, delay: int}|null
+ *
+ * Levels: success | danger | warning | info | message
+ * Delay:  milliseconds, e.g. 5000
+ */
+
+$levelIcons = [
+    'success' => '✓',
+    'danger'  => '✕',
+    'warning' => '⚠',
+    'info'    => 'ℹ',
+    'message' => '✉',
+];
+
+$levelTitles = [
+    'success' => 'Success',
+    'danger'  => 'Error',
+    'warning' => 'Warning',
+    'info'    => 'Info',
+    'message' => 'Message',
+];
+?>
+<?php if (! empty($notification)): ?>
+<?php
+    $level = $this->escapeHtmlAttr($notification['level'] ?? 'info');
+    $delay = (int) ($notification['delay'] ?? 5000);
+    $icon  = $levelIcons[$notification['level'] ?? 'info'] ?? 'ℹ';
+    $title = $levelTitles[$notification['level'] ?? 'info'] ?? 'Info';
+?>
+<dialog
+    id="notification-dialog"
+    class="notification-dialog notification-dialog--<?= $level ?>"
+    data-autoshow
+    data-delay="<?= $delay ?>"
+    aria-live="assertive"
+    aria-atomic="true"
+>
+    <div class="notification-dialog-accent"></div>
+    <div class="notification-dialog-inner">
+        <header class="notification-dialog-header">
+            <span class="notification-dialog-icon" aria-hidden="true"><?= $icon ?></span>
+            <span class="notification-dialog-title"><?= $this->escapeHtml($title) ?></span>
+            <button class="notification-dialog-close" type="button" aria-label="Close notification">✕</button>
+        </header>
+        <div class="notification-dialog-body">
+            <?= $this->escapeHtml($notification['message'] ?? '') ?>
+        </div>
+    </div>
+    <div class="notification-dialog-progress"></div>
+</dialog>
+<?php endif ?>

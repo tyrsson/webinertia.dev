@@ -51,7 +51,7 @@ final class PageHandler implements RequestHandlerInterface
 
         $messenger?->sendNow(
             'There was a problem sending your message. Please try again.',
-            MessageLevel::Danger,
+            MessageLevel::Warning,
         );
 
          return new Response\HtmlResponse($this->template->render('app::contact-page', $data));
