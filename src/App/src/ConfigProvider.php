@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace App;
 
+
 /**
  * @phpstan-type dependencyArray array{
  *                      delegators?: array<class-string, list<class-string>>,
@@ -63,6 +64,7 @@ class ConfigProvider
                 Handler\HomePageHandler::class    => Container\HomePageHandlerFactory::class,
                 Handler\ProjectPageHandler::class => Container\ProjectPageHandlerFactory::class,
                 Handler\ServicePageHandler::class => Container\ServicePageHandlerFactory::class,
+                Middleware\NotificationMiddleware::class => Middleware\NotificationMiddlewareFactory::class,
                 RouteProvider::class              => Container\RouteProviderFactory::class,
             ],
             'invokables' => [
@@ -94,14 +96,16 @@ class ConfigProvider
     {
         return [
             'map'            => [
-                'layout::default' => __DIR__ . '/../templates/layout/default.phtml',
-                'app::home-page'  => __DIR__ . '/../templates/app/home-page.phtml',
-                'error::404'      => __DIR__ . '/../templates/error/404.phtml',
-                'error::error'    => __DIR__ . '/../templates/error/error.phtml',
+                'layout::default'               => __DIR__ . '/../templates/layout/default.phtml',
+                'app::home-page'                => __DIR__ . '/../templates/app/home-page.phtml',
+                'error::404'                    => __DIR__ . '/../templates/error/404.phtml',
+                'error::error'                  => __DIR__ . '/../templates/error/error.phtml',
+                'partials::notification-dialog' => __DIR__ . '/../templates/partials/notification-dialog.phtml',
             ],
             'paths'          => [
-                'app'   => [__DIR__ . '/../templates/app'],
-                'error' => [__DIR__ . '/../templates/error'],
+                'app'      => [__DIR__ . '/../templates/app'],
+                'error'    => [__DIR__ . '/../templates/error'],
+                'partials' => [__DIR__ . '/../templates/partials'],
             ],
             'default_layout' => 'layout::default',
         ];

@@ -51,8 +51,6 @@ final class RouteProvider implements RouteProviderInterface
             '/contact',
             $middlewareFactory->prepare(
                 [
-                    SessionMiddleware::class,
-                    MessageMiddleware::class,
                     Contact\Middleware::class,
                     Contact\PageHandler::class,
                 ]

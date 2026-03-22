@@ -13,7 +13,9 @@ return [
         'subject' => 'Webinertia Project Request',
     ],
     SseStreamHandler::class => [
-        'enable' => false,
+        'enable' => true,
+        'template' => null,
+        'mode'     => 'callback', // or 'batch'
     ],
     'view_helper_config' => [
         'asset' => [
