@@ -7,33 +7,28 @@ $this->headMeta()->appendName('description', 'Discover the comprehensive range o
 ?>
 <!-- Page Header -->
 <section class="page-header">
-    <h1 class="hero-title page-title">
+    <h1 class="hero-title">
         <span class="gradient-text">Our Services</span>
     </h1>
     <div class="divider"></div>
-    <p class="hero-subtitle" style="max-width: 700px; margin: 2rem auto 0;">
+    <p class="hero-subtitle">
         From concept to deployment, we deliver comprehensive solutions that drive results.
     </p>
 </section>
 
 <!-- Services Grid -->
-<section class="service-grid-wrapper">
-    <div class="section-header">
-        <h2 class="section-title"><span class="gradient-text">What We Offer</span></h2>
-        <div class="divider"></div>
-    </div>
+<section class="bento-section">
     <div class="bento-grid">
         <div class="bento-card large">
             <div class="card-icon">🚀</div>
             <h3 class="card-title">Web Application Development</h3>
             <p class="card-description">
-                Build powerful, scalable web applications with modern frameworks and architectures. We specialize in Mezzio, Laminas, Slim, and Swoole, delivering solutions that are fast, secure, and maintainable.
+                Build powerful, scalable web applications with modern frameworks and architectures. We specialize in React, Next.js, Vue, and Angular, delivering solutions that are fast, secure, and maintainable.
             </p>
-            <div class="service-tags-container-purple">
-                <span class="service-tag-purple">Mezzio</span>
-                <span class="service-tag-purple">Laminas</span>
-                <span class="service-tag-purple">Slim</span>
-                <span class="service-tag-purple">Swoole</span>
+            <div class="service-tags">
+                <span class="service-tag">React</span>
+                <span class="service-tag">Next.js</span>
+                <span class="service-tag">TypeScript</span>
             </div>
         </div>
 
@@ -55,7 +50,7 @@ $this->headMeta()->appendName('description', 'Discover the comprehensive range o
 
         <div class="bento-card">
             <div class="card-icon">🔐</div>
-            <h3 class="card-title">Security & Compliance</h3>
+            <h3 class="card-title">Security &amp; Compliance</h3>
             <p class="card-description">
                 Enterprise-grade security with OWASP best practices, regular audits, and compliance with GDPR, HIPAA, and SOC 2.
             </p>
@@ -67,10 +62,10 @@ $this->headMeta()->appendName('description', 'Discover the comprehensive range o
             <p class="card-description">
                 Deploy and scale with confidence using modern cloud platforms. We architect solutions on AWS, Azure, and GCP with automated CI/CD pipelines, containerization, and orchestration.
             </p>
-            <div class="service-tags-container-cyan">
-                <span class="service-tag-cyan">AWS</span>
-                <span class="service-tag-cyan">Docker</span>
-                <span class="service-tag-cyan">Kubernetes</span>
+            <div class="service-tags">
+                <span class="service-tag cyan">AWS</span>
+                <span class="service-tag cyan">Docker</span>
+                <span class="service-tag cyan">Kubernetes</span>
             </div>
         </div>
 
@@ -92,7 +87,7 @@ $this->headMeta()->appendName('description', 'Discover the comprehensive range o
 
         <div class="bento-card">
             <div class="card-icon">📊</div>
-            <h3 class="card-title">Analytics & Insights</h3>
+            <h3 class="card-title">Analytics &amp; Insights</h3>
             <p class="card-description">
                 Track user behavior, monitor performance, and make data-driven decisions with integrated analytics solutions.
             </p>
@@ -100,7 +95,7 @@ $this->headMeta()->appendName('description', 'Discover the comprehensive range o
 
         <div class="bento-card">
             <div class="card-icon">🔄</div>
-            <h3 class="card-title">Maintenance & Support</h3>
+            <h3 class="card-title">Maintenance &amp; Support</h3>
             <p class="card-description">
                 Ongoing support, updates, and optimization to keep your application running smoothly and securely.
             </p>
@@ -109,11 +104,11 @@ $this->headMeta()->appendName('description', 'Discover the comprehensive range o
 </section>
 
 <!-- CTA -->
-<section class="service-cta-section">
-    <h2 class="section-title cta-section-title">
+<section class="cta-section bg-card">
+    <h2 class="section-title">
         <span class="gradient-text">Let's Build Together</span>
     </h2>
-    <p class="section-subtitle cta-section-subtitle">
+    <p class="section-subtitle">
         Ready to start your next project?
     </p>
     <a href="<?= $this->url('contact') ?>" class="btn-primary">Get Started</a>

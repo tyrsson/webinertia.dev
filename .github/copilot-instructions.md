@@ -5,7 +5,7 @@
 **webinertia.dev** is a Mezzio 3 web framework application for Webinertia, a software development company specializing in Mezzio and Laminas frameworks.
 
 - **Language**: PHP 8.2, 8.3, 8.4, 8.5
-- **Type**: Custom Mezzio Skeleton / Corporate Website
+- **Type**: Custom Mezzio Application / Corporate Website
 - **Framework Stack**: Mezzio 3, Laminas ServiceManager, FastRoute
 - **Key Features**: Bleeding-edge dependencies, PHPStan level 10 analysis, Pico CSS framework, HTMX integration
 
@@ -13,7 +13,7 @@
 
 ### PSR Compliance
 - **PSR-4**: Autoloading with namespace root `App\` mapping to `src/App/src/`
-- **PSR-1/PSR-12/PER-3**: PHP coding standards (enforced via php-cs-fixer)
+- **PSR-1/PSR-12/PER-3**: PHP coding standards (enforced via php-cs-fixer) and webware coding standard
 - **PSR-7**: HTTP message interfaces via Laminas Diactoros
 - **PSR-11**: Container Interface for dependency injection. Laminas ServiceManager is used as the container implementation.
 - **PSR-15**: HTTP Server Request Handlers and Middleware. All handlers implement `Psr\Http\Server\RequestHandlerInterface`.
@@ -158,7 +158,7 @@ composer sa                    # PHPStan level 10
 composer sa-gen-baseline       # Generate PHPStan baseline
 composer sa-verbose            # Verbose analysis
 
-# Database cache clear
+# Clear config cache
 composer clear-config-cache
 
 # Testing
@@ -238,7 +238,8 @@ composer test-coverage         # Generate coverage report
 - **Format**: `.phtml` (PHP HTML templates)
 - **Location**: `src/App/templates/`
 - **Layout**: `default.phtml` in `layout/` subdirectory
-- **CSS Framework**: Pico CSS (lightweight, minimal)
+- **Body**: Rendered via `$this->body` in layout, and provided by `src/Htmx/templates/body/default.phtml` to provide an additional layer to support HTMX boosting.
+- **CSS Framework**: Bootstrap 5.3 with custom dark glassmorphic styles in `assets/css/style.css`
 - **JavaScript**: HTMX (loaded from CDN)
 
 ### Template Usage
@@ -283,7 +284,7 @@ $template->render('app::{page-name}', ['variable' => $value]);
 - **Config Caching**: Enabled in production (disabled in development)
 - **Debug Mode**: Configurable via `ConfigAggregator::ENABLE_CACHE`
 - **Database**: MySQL with direct access layer (`phpdb/phpdb-mysql`)
-- **Front-end**: HTMX + Pico CSS for minimal overhead
+- **Front-end**: HTMX + Bootstrap 5.3 with custom dark glassmorphic styles in `assets/css/style.css`
 
 ## Development Considerations
 
@@ -299,7 +300,7 @@ $template->render('app::{page-name}', ['variable' => $value]);
 - **Development Tools**: Tracy debugger available if package installed
 - **Config Cache**: Clear with `composer clear-config-cache`
 - **Error Display**: Controlled via development.config.php
-- **Development mode disabled by**: Renaming `development.config.php` to `development.config.php.dist`
+- **Development mode disabled by**: First replace the contents of `development.config.php.dist` with `development.config.php` then rename back to `development.config.php.dist`
 
 ## Version Information
 - **Current Branch**: 0.1.x
@@ -313,3 +314,10 @@ $template->render('app::{page-name}', ['variable' => $value]);
 - FastRoute: https://github.com/nikic/FastRoute
 - PHPUnit: https://phpunit.de/
 - PHPStan: https://phpstan.org/
+- PhpDb: https://github.com/php-db/phpdb/tree/0.6.x/docs/book
+- PhpDb MySQL Adapter: https://github.com/php-db/phpdb-mysql/tree/0.4.x/docs/book
+- Webware Coding Standard: https://github.com/tyrsson/coding-standard
+- Webware Command Bus: https://github.com/tyrsson/command-bus/tree/0.5.x/docs
+- Webware Traccio: https://github.com/tyrsson/traccio
+- Axleus Mailer: https://github.com/axleus/axleus-mailer
+- Axleus Message: https://github.com/axleus/axleus-message
