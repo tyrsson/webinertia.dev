@@ -44,8 +44,7 @@
     "autoload": {
         "psr-4": {
             "App\\": "src/App/src/",
-            "Htmx\\": "src/Htmx/src/",
-            "Webware\\SSE\\": "src/SSE/src/"
+            "Htmx\\": "src/Htmx/src/"
         }
     },
     "autoload-dev": {

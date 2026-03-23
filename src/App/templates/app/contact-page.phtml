@@ -7,11 +7,11 @@ $this->headMeta()->appendName('description', 'Get in touch with Webinertia to di
 ?>
 <!-- Page Header -->
 <section class="page-header">
-    <h1 class="hero-title page-title">
+    <h1 class="hero-title">
         <span class="gradient-text">Let's Talk</span>
     </h1>
     <div class="divider"></div>
-    <p class="hero-subtitle" style="max-width: 700px; margin: 2rem auto 0;">
+    <p class="hero-subtitle">
         Have a project in mind? We'd love to hear about it. Fill out the form below and we'll get back to you within 24 hours.
     </p>
 </section>
@@ -20,7 +20,7 @@ $this->headMeta()->appendName('description', 'Get in touch with Webinertia to di
 <section class="contact-container">
     <div class="contact-form">
         <form action="<?= $this->url('process.contact') ?>" method="POST" enctype="multipart/form-data">
-            <div class="contact-form-grid">
+            <div class="form-grid">
                 <div class="form-group">
                     <label>First Name</label>
                     <input type="text" name="firstname" placeholder="John" required>
@@ -31,7 +31,7 @@ $this->headMeta()->appendName('description', 'Get in touch with Webinertia to di
                 </div>
             </div>
 
-            <div class="contact-form-grid">
+            <div class="form-grid">
                 <div class="form-group">
                     <label>Email</label>
                     <input type="email" name="email" placeholder="john@example.com" required>
@@ -47,7 +47,7 @@ $this->headMeta()->appendName('description', 'Get in touch with Webinertia to di
                 <input type="text" name="company" placeholder="Your Company Name">
             </div>
 
-            <div class="contact-form-grid">
+            <div class="form-grid">
                 <div class="form-group">
                     <label>Service Needed</label>
                     <select name="service" required>
@@ -84,17 +84,13 @@ $this->headMeta()->appendName('description', 'Get in touch with Webinertia to di
 </section>
 
 <!-- Contact Info -->
-<section class="contact-info-section">
-    <div class="section-header">
-        <h2 class="section-title"><span class="gradient-text">Get in Touch</span></h2>
-        <div class="divider"></div>
-    </div>
+<section class="content-section">
     <div class="bento-grid">
         <div class="bento-card">
             <div class="card-icon">📧</div>
             <h3 class="card-title">Email</h3>
             <p class="card-description">
-                <a href="mailto:jsmith@webinertia.net" class="contact-email-link">jsmith@webinertia.net</a>
+                <a href="mailto:hello@webinertia.com" class="link-cyan">hello@webinertia.com</a>
             </p>
         </div>
 
@@ -123,29 +119,29 @@ $this->headMeta()->appendName('description', 'Get in touch with Webinertia to di
         <div class="divider"></div>
     </div>
 
-    <div style="max-width: 800px; margin: 0 auto;">
-        <div class="bento-card faq-card">
+    <div class="card-stack">
+        <div class="bento-card">
             <h3 class="card-title">What's your typical project timeline?</h3>
             <p class="card-description">
                 Project timelines vary based on scope and complexity. A typical web application takes 8-16 weeks from discovery to launch. We provide detailed timelines during our initial consultation.
             </p>
         </div>
 
-        <div class="bento-card faq-card">
+        <div class="bento-card">
             <h3 class="card-title">Do you provide ongoing support?</h3>
             <p class="card-description">
                 Yes! We offer flexible maintenance and support packages to keep your application running smoothly, secure, and up-to-date.
             </p>
         </div>
 
-        <div class="bento-card faq-card">
+        <div class="bento-card">
             <h3 class="card-title">What technologies do you work with?</h3>
             <p class="card-description">
-                We specialize in modern PHP frameworks (Mezzio, Laminas, Slim, Swoole), and cloud platforms (AWS, Azure, GCP, Docker) to name a few. We choose the best technology stack for your specific needs.
+                We specialize in modern JavaScript frameworks (React, Next.js, Vue), Node.js, Python, and cloud platforms (AWS, Azure, GCP). We choose the best technology stack for your specific needs.
             </p>
         </div>
 
-        <div class="bento-card faq-card">
+        <div class="bento-card">
             <h3 class="card-title">Can you work with our existing team?</h3>
             <p class="card-description">
                 Absolutely! We're experienced in collaborating with in-house teams, providing additional development capacity, expertise, or taking full project ownership.

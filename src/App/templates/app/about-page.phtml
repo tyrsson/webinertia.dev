@@ -7,27 +7,23 @@ $this->headMeta()->appendName('description', 'Learn about Webinertia, our missio
 ?>
 <!-- Page Header -->
 <section class="page-header">
-    <h1 class="hero-title page-title">
+    <h1 class="hero-title">
         <span class="gradient-text">About Us</span>
     </h1>
     <div class="divider"></div>
-    <p class="hero-subtitle about-header-subtitle">
+    <p class="hero-subtitle hero-subtitle--wide">
         We're a team of passionate developers, designers, and problem-solvers dedicated to pushing the boundaries of web technology.
     </p>
 </section>
 
 <!-- Mission Section -->
-<section class="mission-section">
-    <div class="section-header">
-        <h2 class="section-title"><span class="gradient-text">Our Mission</span></h2>
-        <div class="divider"></div>
-    </div>
-    <div class="mission-grid-wrapper">
+<section class="content-section">
+    <div class="content-wrap">
         <div class="bento-grid">
             <div class="bento-card large">
                 <div class="card-icon">🎯</div>
                 <h3 class="card-title">Our Mission</h3>
-                <p class="card-description mission-card-description">
+                <p class="card-description lead">
                     At Webinertia, we believe in the transformative power of technology. Our mission is to create digital experiences that not only meet business objectives but exceed user expectations. We combine technical excellence with creative innovation to deliver solutions that matter.
                 </p>
             </div>
@@ -76,26 +72,26 @@ $this->headMeta()->appendName('description', 'Learn about Webinertia, our missio
 </section>
 
 <!-- Values Section -->
-<section class="values-section">
+<section class="content-section-lg">
     <div class="section-header">
         <h2 class="section-title"><span class="gradient-text">Our Values</span></h2>
         <div class="divider"></div>
     </div>
 
-    <div class="values-grid-wrapper">
-        <div class="bento-card values-card">
+    <div class="card-stack">
+        <div class="bento-card">
             <h3 class="card-title">Transparency</h3>
             <p class="card-description">
                 Open communication, honest timelines, and clear pricing. No hidden costs, no surprises.
             </p>
         </div>
-        <div class="bento-card values-card">
+        <div class="bento-card">
             <h3 class="card-title">Excellence</h3>
             <p class="card-description">
                 We don't settle for "good enough." Every line of code, every design element is crafted with precision and care.
             </p>
         </div>
-        <div class="bento-card values-card">
+        <div class="bento-card">
             <h3 class="card-title">Continuous Learning</h3>
             <p class="card-description">
                 Technology evolves rapidly, and so do we. Ongoing training and exploration keep us at the forefront of innovation.
@@ -105,11 +101,11 @@ $this->headMeta()->appendName('description', 'Learn about Webinertia, our missio
 </section>
 
 <!-- CTA -->
-<section class="cta-section-base">
-    <h2 class="section-title cta-section-title">
+<section class="cta-section">
+    <h2 class="section-title">
         <span class="gradient-text">Join Us on This Journey</span>
     </h2>
-    <p class="section-subtitle cta-section-subtitle">
+    <p class="section-subtitle">
         Let's create something amazing together
     </p>
     <a href="<?= $this->url('contact') ?>" class="btn-primary">Start Your Project</a>
