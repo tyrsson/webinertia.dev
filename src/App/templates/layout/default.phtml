@@ -41,7 +41,8 @@ $this->headScript()
             'integrity'   => 'sha384-/TgkGk7p307TH7EXJDuUlgG3Ce1UVolAOFopFekQkkXihi5u/6OCvVKyz1W+idaz',
             'crossorigin' => 'anonymous',
         ],
-    );
+    )
+    ->appendFile($this->basePath($this->asset('messenger.js')));
 
 $this->inlineScript()
     ->prependFile('https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js');
@@ -57,51 +58,41 @@ $this->inlineScript()
         <?= $this->headLink() ?>
         <?= $this->headScript() ?>
     </head>
-    <body hx-boost="true" hx-push-url="true">
-        <?= $this->body ?>
+    <body hx-boost="true" hx-push-url="true" hx-target="main">
+        <main id="app">
+            <?= $this->body ?>
+        </main>
+        <div id="systemMessage" class="toast-container position-fixed bottom-0 end-0 p-4">
+            <template id="toastTemplate">
+                <div class="toast toast-simple" role="status" aria-live="polite" aria-atomic="true" data-bs-delay="3000">
+                    <div class="toast-body">
+                        <span class="toast-message"></span>
+                    </div>
+                </div>
+            </template>
+        </div>
+        <?= $this->inlineScript() ?>
+        <!-- Menu Script -->
+        <script>
+            // Set .active on the matching side-nav link; never touches mobile nav links
+            function setActiveNav() {
+                const currentPath = window.location.pathname;
+                document.querySelectorAll('#side-nav .side-nav-items .side-nav-item a').forEach(function(link) {
+                    link.classList.toggle('active', link.pathname === currentPath);
+                });
+            }
+
+            function initPage() {
+                setActiveNav();
+            }
+
+            document.addEventListener('DOMContentLoaded', initPage);
+
+            // Re-init after every HTMX content swap (boosted navigation).
+            document.addEventListener('htmx:afterSettle', initPage);
+
+            // Re-init when HTMX restores a page from the history cache (back/forward).
+            document.addEventListener('htmx:historyRestore', initPage);
+        </script>
     </body>
-    <?= $this->inlineScript() ?>
-
-    <!-- Menu Script -->
-    <script>
-        // Set .active on the matching side-nav link; never touches mobile nav links
-        function setActiveNav() {
-            const currentPath = window.location.pathname;
-            document.querySelectorAll('#side-nav .side-nav-items .side-nav-item a').forEach(function(link) {
-                link.classList.toggle('active', link.pathname === currentPath);
-            });
-        }
-
-        function initPage() {
-            setActiveNav();
-        }
-
-        document.addEventListener('DOMContentLoaded', initPage);
-
-        // Re-init after every HTMX content swap (boosted navigation).
-        document.addEventListener('htmx:afterSettle', initPage);
-
-        // Re-init when HTMX restores a page from the history cache (back/forward).
-        document.addEventListener('htmx:historyRestore', initPage);
-
-        (function () {
-            let tracyEl = null;
-
-            document.addEventListener('htmx:beforeSwap', function () {
-                tracyEl = document.getElementById('tracy-debug');
-                if (tracyEl) {
-                    tracyEl.remove(); // detach before HTMX replaces body innerHTML
-                }
-            });
-
-            // Use htmx:afterSwap (not afterSettle) to re-attach as early as possible,
-            // before Tracy's async _tracy_bar script can fire and call loadAjax().
-            document.addEventListener('htmx:afterSwap', function () {
-                if (tracyEl) {
-                    document.body.appendChild(tracyEl);
-                    tracyEl = null;
-                }
-            });
-        })();
-    </script>
 </html>

@@ -218,3 +218,22 @@ When writing any new CSS for this project:
 | Hard-coding `#8B5CF6` in new CSS | Use `var(--primary-purple)` |
 | Forgetting tooltip init in JS | `querySelectorAll('[data-bs-toggle="tooltip"]').forEach(el => new bootstrap.Tooltip(el))` |
 | Putting modals inside `<main>` | Place all `modal`/`offcanvas` HTML **after** `</main>`, before `<script>` |
+| Adding `<script>` tags to `body/default.phtml` | Scripts there execute on every HTMX swap — put once-only JS in the layout or a static `.js` file loaded via the layout `<head>` |
+
+---
+
+## HTMX Swap Target — Critical Architecture Note
+
+HTMX **does not swap `<body>`**. The swap target is `<main class="main-content">` inside `src/Htmx/templates/body/default.phtml`.
+
+The rendering stack has three layers:
+1. **Page template** (`app::{page-name}`) — handler content, renders into `$this->content`
+2. **Body template** (`src/Htmx/templates/body/default.phtml`) — side nav, mobile nav, `<main class="main-content"><?= $this->content ?></main>`, footer. This is what HTMX swaps in on boosted navigation.
+3. **Layout template** (`src/App/templates/layout/default.phtml`) — the full HTML document with `<head>`, all CDN assets, the `<script>` block, and the toast container. This is rendered **only once** on the initial full-page load.
+
+On HTMX requests, `DetectAjaxRequestMiddleware` sets `layout = false`, skipping Layer 3. Only the body partial (Layer 2) is returned and swapped into `<main>`.
+
+**Consequences for JS and UI elements:**
+- The layout `<script>` block and all its event listeners (`htmx.on`, `document.addEventListener`) execute **once** and persist for the session — no duplication.
+- The toast container (`#systemMessage`) lives in the layout outside `<main>` and is never swapped out.
+- Do not add JS to `body/default.phtml` — it will re-execute on every navigation and cause duplicate listeners.

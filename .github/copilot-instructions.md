@@ -237,10 +237,26 @@ composer test-coverage         # Generate coverage report
 - **Engine**: Laminas View (View abstraction)
 - **Format**: `.phtml` (PHP HTML templates)
 - **Location**: `src/App/templates/`
-- **Layout**: `default.phtml` in `layout/` subdirectory
-- **Body**: Rendered via `$this->body` in layout, and provided by `src/Htmx/templates/body/default.phtml` to provide an additional layer to support HTMX boosting.
 - **CSS Framework**: Bootstrap 5.3 with custom dark glassmorphic styles in `assets/css/style.css`
 - **JavaScript**: HTMX (loaded from CDN)
+
+### Three-Layer Rendering Architecture
+
+The application uses a **custom three-layer template stack** implemented in `src/Htmx/src/View/LaminasRenderer.php`:
+
+| Layer | Template | Responsibility |
+|---|---|---|
+| 1 — Page | `app::{page-name}` | Handler-specific content (rendered into `$this->content`) |
+| 2 — Body | `src/Htmx/templates/body/default.phtml` | Side nav, mobile nav offcanvas, `<main class="main-content">`, footer. Renders `$this->content` inside `<main>`. |
+| 3 — Layout | `src/App/templates/layout/default.phtml` | Full HTML document: `<head>`, Bootstrap/HTMX CDN assets, `<body>`, the inline `<script>` block, `$this->body`. |
+
+**Critical HTMX behaviour:**
+- On HTMX boosted/ajax requests, `DetectAjaxRequestMiddleware` sets `layout = false`, which skips Layer 3 entirely. Only Layer 2 (the body partial) is returned.
+- HTMX swaps the response into `<main class="main-content">` — **not** `<body>`. The layout (`<head>`, scripts, toast container) is **never re-rendered or re-executed** on boosted navigation.
+- This means all `<script>` blocks and event listeners in `layout/default.phtml` execute exactly once on the initial full-page load and are never touched again.
+- **Do not place JavaScript in the body template** (`body/default.phtml`) — it will execute on every HTMX swap.
+- All JS that should run once (event listeners, HTMX handlers, Bootstrap initialisers) belongs in `layout/default.phtml` or a separate `.js` file loaded via `headScript()` in the layout.
+- The toast container (`#systemMessage`) lives in the layout outside the `<main>` swap target and therefore persists across all navigations.
 
 ### Template Usage
 ```php
