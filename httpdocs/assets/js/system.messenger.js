@@ -1,15 +1,15 @@
-// todo: move this to a notification.js file to load on both front and backend
-const systemMessage = function (level, msg) {
-    const template = document.querySelector('#systemMessageTemplate');
-    const clone    = template.content.firstElementChild.cloneNode(true);
-    //clone.classList.add(`bg-${level ?? 'info'}`, "fw-bold");
-    clone.querySelector('.toast-header').classList.add(`bg-${level ?? 'info'}`);
-    clone.querySelector('.toast-body').innerHTML = msg;
-    const container = document.querySelector('#systemMessage');
-    const messenger = new bootstrap.Toast(clone, {autohide: true, delay: 2000});
+function systemMessage(level, msg) {
+    const template  = document.getElementById('toastTemplate');
+    const clone     = template.content.firstElementChild.cloneNode(true);
+    clone.classList.add(`toast-${level ?? 'info'}`);
+    clone.querySelector('.toast-message').textContent = msg;
+    const container = document.getElementById('systemMessage');
+    const toast     = new bootstrap.Toast(clone, { autohide: true, delay: 4000 });
+    clone.addEventListener('hidden.bs.toast', () => clone.remove());
     container.appendChild(clone);
-    messenger.show();
-};
+    toast.show();
+}
+
 // handle the server triggered systemMessage event
 htmx.on("systemMessage", evt => systemMessage(evt.detail.level, evt.detail.message));
 

@@ -25,7 +25,8 @@ trait TriggerTrait
     public function htmxTrigger(
         array $data,
         ?string $event = self::SYSTEM_MESSAGE,
+        Header $header = Header::TriggerAfterSettle,
     ): void {
-        $this->headers[Header::Trigger->value] = json_encode([$event => $data]);
+        $this->headers[$header->value] = json_encode([$event => $data]);
     }
 }

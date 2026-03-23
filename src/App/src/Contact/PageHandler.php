@@ -16,6 +16,7 @@ namespace App\Contact;
 
 use Axleus\Message\MessageLevel;
 use Axleus\Message\SystemMessengerInterface;
+use Htmx\TriggerTrait;
 use Laminas\Diactoros\Response;
 use Mezzio\Template\TemplateRendererInterface;
 use Psr\Http\Message\ResponseInterface;
@@ -24,8 +25,14 @@ use Psr\Http\Server\RequestHandlerInterface;
 use Webware\CommandBus\Command\CommandResult;
 use Webware\CommandBus\Command\CommandStatus;
 
+use function strtolower;
+
 final class PageHandler implements RequestHandlerInterface
 {
+    use TriggerTrait;
+
+    protected array $headers = [];
+
     public function __construct(
         private readonly ?TemplateRendererInterface $template = null,
     ) {}
@@ -42,18 +49,21 @@ final class PageHandler implements RequestHandlerInterface
             return new Response\HtmlResponse($this->template->render('app::contact-page', $data));
         }
 
-        if ($commandResult->getStatus() === CommandStatus::Success) {
-            $messenger?->sendNow(
-                'Your message has been sent. We will be in touch shortly.',
-                MessageLevel::Success,
+        $status = $commandResult->getStatus() === CommandStatus::Success;
+        $this->htmxTrigger(
+            [
+                'message' => $status
+                    ? 'Your message has been sent successfully.'
+                    : 'There was an error sending your message. Please try again later.',
+                'level' => $status
+                        ? strtolower(MessageLevel::Success->value)
+                        : strtolower(MessageLevel::Warning->value),
+                ],
             );
-        }
 
-        $messenger?->sendNow(
-            'There was a problem sending your message. Please try again.',
-            MessageLevel::Warning,
+         return new Response\HtmlResponse(
+            html: $this->template->render('app::contact-page', $data),
+            headers: $this->headers
         );
-
-         return new Response\HtmlResponse($this->template->render('app::contact-page', $data));
     }
 }
