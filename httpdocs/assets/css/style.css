@@ -351,7 +351,7 @@ a.btn-outline:hover {
 /* Bento Grid Layout */
 .bento-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
     gap: 2rem;
     padding: 4rem;
     max-width: 1400px;
@@ -1417,7 +1417,7 @@ footer {
 /* Accordion wrapper containers */
 .accordion-demo-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr));
     gap: 3rem;
     padding: 4rem;
     max-width: 1400px;
@@ -1581,6 +1581,59 @@ footer {
 }
 
 /* =====================================================
+   NARROW SCREEN PADDING RELIEF (≤575px)
+   Prevents sections with 4rem horizontal padding from
+   compounding with grid min-widths on small phones.
+   ===================================================== */
+@media (max-width: 575px) {
+    .diagonal-section {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    .bento-grid,
+    .portfolio-grid,
+    .modal-trigger-grid,
+    .toast-demo-grid,
+    .accordion-demo-grid {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    .process-grid {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    .content-section,
+    .content-section-lg,
+    .cta-section {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    .page-header {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    .contact-container {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    .tech-stack {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    .tooltip-demo-strip {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+}
+
+/* =====================================================
    PAGE STRUCTURE UTILITIES
    ===================================================== */
 
@@ -1692,7 +1745,7 @@ footer {
 
 .stats-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
     gap: 3rem;
     max-width: 1200px;
     margin: 0 auto;
@@ -1750,7 +1803,7 @@ footer {
 
 .process-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
     gap: 3rem;
     max-width: 1200px;
     margin: 0 auto;
